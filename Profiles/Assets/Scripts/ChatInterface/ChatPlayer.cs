@@ -13,8 +13,7 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	public Text submissionSentence; //text that displays submittedWords
 	public Text[] displayedSentences = new Text[6]; //UI objects holding the sentences
 	GUIStyle style = new GUIStyle(); //allows text to be displayed with HTML formatting
-	List<string> dialogueTexts = new List<string>(); //holds the strings that 
-	public List<GameObject> buttonLayout;
+	public List<string> dialogueTexts; //holds the strings that display conversation
 	public Button submit, reset;
 
 	void Start () {
@@ -108,7 +107,7 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 			for (int i = 0; i < dialogueTexts.Count; i++) // 
 			{
 				displayedSentences[i].text = dialogueTexts[i];
-				displayedSentences[i].rectTransform.anchoredPosition = new Vector2 (0.1f, (1.0f - (float)i * 0.1f));
+				displayedSentences[i].rectTransform.anchoredPosition = new Vector2 (0.1f, (220.0f - (float)i * 60.0f));
 			}
 		}	
 	}
@@ -127,7 +126,6 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 		else 
 			//change submit state to inactive
 			submit.interactable = false;
-
 	}
 
 	public void Submit()
@@ -143,9 +141,9 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 		submittedWords = "";
 		submissionSentence.text = submittedWords;
 		if (submittedWords != "") 
-			GetComponent<ButtonLayout> ().Activate (dialogueFile.DialogItems [progressCounter].wordChoices);
-		//change reset state inactive
-		reset.interactable = false;
+			GetComponent<ButtonLayout> ().Activate (dialogueFile.DialogItems [progressCounter].wordChoices); //fill buttons with text and ma them visible
+		reset.interactable = false; //change reset state inactive
+
 
 	}
 	

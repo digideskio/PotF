@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ButtonLayout : MonoBehaviour {
 
-	public List<Button> buttonList; //list of buttons as established in inspector/prefab which hold text values/receive input
+	public List<Button> buttonList; //list of buttons as established in inspector
 	public float buttonVerticalDistance, buttonHorizontalDistance; //spacing between buttons
 	float topLeftX, topLeftY; //marks position of buttonlayout
 
