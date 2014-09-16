@@ -18,7 +18,7 @@ public class ButtonLayout : MonoBehaviour {
 	
 	public void Activate(List<string> wordChoices) //where wordChoices from dialogue asset
 	{
-		for (int i = 0; i < wordChoices.Count; i++)
+		for (int i = 0; i < 1; i++) //wordChoices.Count
 		{
 			buttonList[i].transform.localPosition = new Vector3 (topLeftX + (i % 4) * (buttonHorizontalDistance), topLeftY + ((Mathf.FloorToInt(i / 4)) * buttonVerticalDistance), 0.0f); //places buttons relative to canvas
 			buttonList[i].GetComponentInChildren<Text>().text = wordChoices[i]; //sets button text equal to text from Dialogue asset

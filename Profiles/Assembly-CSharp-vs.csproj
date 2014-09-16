@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChatInterface\Button\ButtonLayout.cs" />
+     <Compile Include="Assets\Scripts\ChatInterface\Button\OnClick.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\ChatPlayer.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Dialogue\CustomAssetUtility.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Dialogue\Dialogue.cs" />
