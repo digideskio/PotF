@@ -55,6 +55,8 @@
      <Compile Include="Assets\Scripts\ChatInterface\Dialogue\DialogueAsset.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Dialogue\DialogueElement.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\SisterAnimation.cs" />
+     <Compile Include="Assets\Scripts\DreamSymbols\ImageDrift.cs" />
+     <Compile Include="Assets\Scripts\DreamSymbols\RotateOnClick.cs" />
      <Compile Include="Assets\Scripts\Main Menu\ProfileList.cs" />
      <Compile Include="Assets\Scripts\Main Menu\SkullClick.cs" />
      <Compile Include="Assets\Scripts\Main Menu\VideoController.cs" />

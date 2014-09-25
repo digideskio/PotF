@@ -1,6 +1,9 @@
+using System.Collections;
 using UnityEngine;
-using UnityEditor;
 using System.IO;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 //this utility class was downloaded from http://www.jacobpennock.com/Blog/?page_id=715
 //it allows user to create custom assets that can be created from the Unity editor
@@ -32,3 +35,4 @@ public static class CustomAssetUtility
         Selection.activeObject = asset;
     }
 }
+#endif

@@ -18,17 +18,19 @@ public class ButtonLayout : MonoBehaviour {
 	
 	public void Activate(List<string> wordChoices) //where wordChoices from dialogue asset
 	{
-		for (int i = 0; i < 1; i++) //wordChoices.Count
+		for (int i = 0; i < wordChoices.Count; i++) //wordChoices.Count
 		{
+			print ("activate");
 			buttonList[i].transform.localPosition = new Vector3 (topLeftX + (i % 4) * (buttonHorizontalDistance), topLeftY + ((Mathf.FloorToInt(i / 4)) * buttonVerticalDistance), 0.0f); //places buttons relative to canvas
+			buttonList[i].gameObject.SetActive(true); //enables text
 			buttonList[i].GetComponentInChildren<Text>().text = wordChoices[i]; //sets button text equal to text from Dialogue asset
-			buttonList[i].interactable = true; //makes button visible/usable                                                                             										
 		}
 	}
 
 	public void DeactivateAll()
 	{
-		foreach (Button button in buttonList)
-			button.interactable = false; //deactivates all buttons
+		foreach (Button button in buttonList) {
+			button.gameObject.SetActive(false); //disables text
+		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
 using System;
 
@@ -18,3 +19,4 @@ public class DialogueAsset {
 		CustomAssetUtility.CreateAsset<Dialogue>(); //Dialogue which is a scriptable object allow us to create an instance of it which does not need to be attached to gameobject / is not a monobehaviour
 	}
 }
+#endif

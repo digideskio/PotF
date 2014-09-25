@@ -15,6 +15,9 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	GUIStyle style = new GUIStyle(); //allows text to be displayed with HTML formatting
 	public List<string> dialogueTexts; //holds the strings that display conversation
 	public Button submit, reset;
+	public string nextLevel;
+
+	public AudioSource jason, sister, background, song, logout, login, clickWord, resetButton;
 
 	void Start () {
 		currentCharacter = dialogueFile.DialogItems [0].character; //sets conversation with character listed in the first element of dialogue
@@ -24,14 +27,14 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 
 	void NextDialogueItem () //progresses forward to the next element in the Dialogue
 	{
-		if (progressCounter < dialogueFile.DialogItems.Count)
+		if (progressCounter < dialogueFile.DialogItems.Count-1)
 		{
 			progressCounter++;
 			StepsisterCycle ();
 		}
 
 		else
-			EndChatSequence();
+			StartCoroutine(EndChatSequence());
 	}
 
 
@@ -66,19 +69,47 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 		yield return new WaitForSeconds (userResponseDelay);
 		//activate the button layout
 		GetComponent<ButtonLayout> ().Activate (dialogueFile.DialogItems [progressCounter].wordChoices);
+		resetButton.Play ();
 
 	}
 
 	//close the chat sequence
-	void EndChatSequence () {;}
+	IEnumerator EndChatSequence ()
+	{
+		yield return new WaitForSeconds(3.0f);
+		if (currentCharacter == Characters.Pink)
+			DisplayCharacterSentence ("", Characters.PinkLogOut); //displays that the current character has logged off
+		else
+			DisplayCharacterSentence ("", Characters.SisterLogOut );
+		StartCoroutine (CloseChat());
+
+	}
+
+	IEnumerator CloseChat(){
+		//fade out, play a transition sound
+		yield return new WaitForSeconds(4.0f);
+		//load nextLevel
+	}
 	
 	public void DisplayCharacterSentence(string characterInput, Characters character)
 	{
 		switch (character) //depending on which character the string belongs to, displays a different style of text
 		{
-		case Characters.User : AddToDialogue ("<color=#6FFF47> Jason: </color>" + characterInput); break;
-		case Characters.Stepsister : AddToDialogue ( "<color=#CB2EFF> Stepsister: </color>" + characterInput); break;
-		case Characters.Pink : AddToDialogue ( "<color=#CB2EFF> Pink: </color>" + characterInput); break;
+		case Characters.User : AddToDialogue ("<color=#00FF00>Jason: </color>" + characterInput);
+			jason.Play ();
+			break;
+		case Characters.Stepsister : AddToDialogue ( "<color=#9970CB>Stepsister: </color>" + characterInput);
+			sister.Play ();
+			break;
+		case Characters.Pink : AddToDialogue ( "<color=#CB2EFF>Pink: </color>" + characterInput);
+			sister.Play ();
+			break;
+		case Characters.PinkLogOut : AddToDialogue ("<color=#646464>Pink has logged off. </color>");
+			logout.Play();
+			break;
+		case Characters.SisterLogOut : AddToDialogue ("<color=#646464>Stepsister has logged off. </color>" );
+			logout.Play();
+			break;
 		}
 	}
 	
@@ -107,7 +138,7 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 			for (int i = 0; i < dialogueTexts.Count; i++) // 
 			{
 				displayedSentences[i].text = dialogueTexts[i];
-				displayedSentences[i].rectTransform.anchoredPosition = new Vector2 (0.1f, (220.0f - (float)i * 60.0f));
+				displayedSentences[i].rectTransform.anchoredPosition = new Vector2 (0.1f, (240.0f - (float)i * 60.0f));
 			}
 		}	
 	}
@@ -116,35 +147,38 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	
 	public void AddWord(string word)
 	{
-		submittedWords += word;
-		submissionSentence.text = submittedWords;
+		clickWord.Play ();
+		submittedWords += word; //adds to the string version of the accumulated sentence
+		submissionSentence.GetComponent<BlinkingCursor> ().AddWord (submittedWords); //adds to the displayed version which requires a special operator overload for blinking cursor
 		//change reset state to on
-		reset.interactable = true;
+		reset.gameObject.SetActive (true);
 		if (IsProperSentence (submittedWords))
 			//change submit state to active
-			submit.interactable = true;
+			submit.gameObject.SetActive(true);
 		else 
 			//change submit state to inactive
-			submit.interactable = false;
+			submit.gameObject.SetActive(false);
 	}
 
 	public void Submit()
 	{
 		DisplayCharacterSentence (submittedWords, Characters.User); //put sentence in display area
 		submittedWords = "";
+		submissionSentence.text = "";
 		//set submit to inactive
-		submit.interactable = false;
+		submit.gameObject.SetActive (false);
+		reset.gameObject.SetActive (false);
+		GetComponent<ButtonLayout> ().DeactivateAll ();
+		NextDialogueItem ();
 	}
 
 	public void Reset()
 	{
 		submittedWords = "";
 		submissionSentence.text = submittedWords;
-		if (submittedWords != "") 
-			GetComponent<ButtonLayout> ().Activate (dialogueFile.DialogItems [progressCounter].wordChoices); //fill buttons with text and ma them visible
-		reset.interactable = false; //change reset state inactive
-
-
+		GetComponent<ButtonLayout> ().Activate (dialogueFile.DialogItems [progressCounter].wordChoices); //fill buttons with text and ma them visible
+		resetButton.Play ();
+		reset.gameObject.SetActive (false);	
 	}
 	
 	public bool IsProperSentence(string userAnswer) //checks to see if user has constructed valid sentence
@@ -157,6 +191,11 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 			}
 		}
 		return false;
+	}
+
+	public void PlayClickWord ()
+	{
+
 	}
 
 }
