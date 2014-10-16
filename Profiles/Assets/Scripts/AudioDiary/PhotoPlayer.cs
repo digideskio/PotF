@@ -5,17 +5,43 @@ using System.Collections.Generic;
 public class PhotoPlayer : MonoBehaviour {
 
 	public List<GameObject> photos;
-	GameObject currentPhoto;
 	public float skipRate;
+	float counter = 0;
 
-
-	// Use this for initialization
-	void Start () {
-	
+	public void OnClick ()
+	{
+		StopCoroutine (PlayPhotos);
+		SkipPhoto ();
+		StartCoroutine (PlayPhotos);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void SkipPhoto ()
+	{
+		if (counter < photos.Count - 1)
+		{
+			counter+=1;
+			photos[counter].SetActive(true); //show next photo
+			photos[counter-1].SetActive(false); //hide previos photo
+		}
+
+		else
+		{
+			counter = 0;
+			photos[counter].SetActive(true); //show next photo
+			photos[photos.Count - 1].SetActive(false); //hide previos photo
+		}
+	}
+
+	public void StartSlideShow ()
+	{
+		photos[counter].SetActive(true);
+		StartCoroutine (PlayPhotos);
+	}
+
+
+	IEnumerator PlayPhotos ()
+	{
+		yield return new WaitForSeconds(skipRate);
+		SkipPhoto ();
 	}
 }
