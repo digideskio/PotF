@@ -6,13 +6,13 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public List<GameObject> photos;
 	public float skipRate;
-	float counter = 0;
+	int counter = 0;
 
 	public void OnClick ()
 	{
-		StopCoroutine (PlayPhotos);
+		StopCoroutine (PlayPhotos());
 		SkipPhoto ();
-		StartCoroutine (PlayPhotos);
+		StartCoroutine (PlayPhotos());
 	}
 
 	void SkipPhoto ()
@@ -35,13 +35,16 @@ public class PhotoPlayer : MonoBehaviour {
 	public void StartSlideShow ()
 	{
 		photos[counter].SetActive(true);
-		StartCoroutine (PlayPhotos);
+		StartCoroutine (PlayPhotos());
 	}
 
 
 	IEnumerator PlayPhotos ()
 	{
-		yield return new WaitForSeconds(skipRate);
-		SkipPhoto ();
+		while (true)
+		{
+			yield return new WaitForSeconds(skipRate);
+			SkipPhoto ();
+		}
 	}
 }

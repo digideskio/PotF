@@ -15,6 +15,7 @@ public class SubmitButton : MonoBehaviour {
 		divisor.SetActive (false);
 		audioDiary.Play ();
 		isPressed = true;
+		GameObject.FindGameObjectWithTag ("StoryPlayer").GetComponent<PhotoPlayer> ().StartSlideShow ();
 	}
 
 	void Update()
