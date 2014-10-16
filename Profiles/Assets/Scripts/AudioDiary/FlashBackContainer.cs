@@ -29,7 +29,6 @@ public class FlashBackContainer : MonoBehaviour {
 			reset.SetActive (true);
 		if (flashBackList.Count == 0)
 		{
-			print ("null");
 			submit.SetActive (false);
 			reset.SetActive (false);
 		}

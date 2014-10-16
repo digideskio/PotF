@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AudioDiary\FlashBack.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\FlashBackContainer.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\ImageController.cs" />
+     <Compile Include="Assets\Scripts\AudioDiary\PhotoPlayer.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\ResetButton.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\SubmitButton.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\BlinkingCursor.cs" />

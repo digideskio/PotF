@@ -7,9 +7,12 @@ public class ImageController : MonoBehaviour {
 	public Animator image;
 	public Image imageGO;
 	public Canvas parent;
+	public AudioSource diaryBit, onClick;
 
 	void OnMouseEnter()
 	{
+		if (image.GetCurrentAnimatorStateInfo(0).IsName("Static"))
+			diaryBit.Play ();
 		image.SetTrigger ("Enter");
 		image.ResetTrigger ("Exit");
 	}
@@ -18,12 +21,14 @@ public class ImageController : MonoBehaviour {
 	{
 		image.SetTrigger ("Exit");
 		image.ResetTrigger ("Enter");
-
 	}
 
 	void OnMouseDown()
 	{
-		image.SetTrigger ("Click");
+		if (image.GetCurrentAnimatorStateInfo(0).IsName("Hover"))
+			image.SetTrigger ("Click");
 		GetComponent<FlashBack> ().AddToFlashBackList ();
+		onClick.Play ();
+
 	}
 }
