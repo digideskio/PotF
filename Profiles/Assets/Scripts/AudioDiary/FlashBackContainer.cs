@@ -30,6 +30,7 @@ public class FlashBackContainer : MonoBehaviour {
 		if (flashBackList.Count == 0)
 		{
 			print ("null");
+			submit.SetActive (false);
 			reset.SetActive (false);
 		}
 		if (flashBackList.Count == 3)

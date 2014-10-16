@@ -11,11 +11,14 @@ public class ImageController : MonoBehaviour {
 	void OnMouseEnter()
 	{
 		image.SetTrigger ("Enter");
+		image.ResetTrigger ("Exit");
 	}
 
 	void OnMouseExit()
 	{
 		image.SetTrigger ("Exit");
+		image.ResetTrigger ("Enter");
+
 	}
 
 	void OnMouseDown()
