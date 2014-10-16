@@ -26,9 +26,11 @@ public class ImageController : MonoBehaviour {
 	void OnMouseDown()
 	{
 		if (image.GetCurrentAnimatorStateInfo(0).IsName("Hover"))
+		{
 			image.SetTrigger ("Click");
+			onClick.Play ();
+		}
 		GetComponent<FlashBack> ().AddToFlashBackList ();
-		onClick.Play ();
 
 	}
 }

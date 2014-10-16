@@ -4,7 +4,7 @@ using System.Collections;
 public class SubmitButton : MonoBehaviour {
 
 	public GameObject submit, reset, divisor;
-	public AudioSource audioDiary;
+	public AudioSource audioDiary, jason, splash;
 	bool isPressed = false;
 
 
@@ -14,6 +14,8 @@ public class SubmitButton : MonoBehaviour {
 		reset.SetActive (false);
 		divisor.SetActive (false);
 		audioDiary.Play ();
+		jason.Play ();
+		splash.Play ();
 		isPressed = true;
 		GameObject.FindGameObjectWithTag ("StoryPlayer").GetComponent<PhotoPlayer> ().StartSlideShow ();
 	}
