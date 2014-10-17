@@ -3,13 +3,15 @@ using System.Collections;
 
 public class SubmitButton : MonoBehaviour {
 
-	public GameObject submit, reset, divisor;
+	public GameObject submit, reset, divisor, fadeIn;
 	public AudioSource audioDiary, jason, splash;
 	bool isPressed = false;
 
 
 	public void Submit()
 	{
+		FlashBackContainer.ResetFlashbacks ();
+		fadeIn.SetActive (true);
 		submit.SetActive (false);
 		reset.SetActive (false);
 		divisor.SetActive (false);

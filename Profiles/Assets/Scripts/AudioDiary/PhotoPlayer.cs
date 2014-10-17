@@ -5,12 +5,13 @@ using System.Collections.Generic;
 public class PhotoPlayer : MonoBehaviour {
 
 	public List<GameObject> photos;
-	public float skipRate;
+	public float skipRate, pause;
 	int counter = 0;
+	bool isPlaying;
 
 	public void OnClick ()
 	{
-		StopCoroutine (PlayPhotos());
+		StopAllCoroutines ();
 		SkipPhoto ();
 		StartCoroutine (PlayPhotos());
 	}
@@ -34,17 +35,34 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public void StartSlideShow ()
 	{
+		isPlaying = true;
 		photos[counter].SetActive(true);
+		StartCoroutine ("Pause");
+	}
+
+	IEnumerator Pause()
+	{
+		yield return new WaitForSeconds (pause);
 		StartCoroutine (PlayPhotos());
 	}
 
-
 	IEnumerator PlayPhotos ()
 	{
-		while (true)
+		while (isPlaying)
 		{
 			yield return new WaitForSeconds(skipRate);
 			SkipPhoto ();
 		}
 	}
+
+	void Update()
+	{
+		if (isPlaying)
+		{
+			if(Input.GetMouseButtonDown(0))	
+				OnClick();
+		}
+
+	}
+
 }
