@@ -64,6 +64,8 @@
      <Compile Include="Assets\Scripts\DreamSymbols\Chap1Condition.cs" />
      <Compile Include="Assets\Scripts\DreamSymbols\ImageDrift.cs" />
      <Compile Include="Assets\Scripts\DreamSymbols\RotateOnClick.cs" />
+     <Compile Include="Assets\Scripts\DreamSymbols\WalkieHandler.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\InnerMenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\ProfileList.cs" />
      <Compile Include="Assets\Scripts\Main Menu\SkullClick.cs" />
