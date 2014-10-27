@@ -6,7 +6,8 @@ public class WalkieHandler : MonoBehaviour {
 	public Animator self;
 	public AudioSource VO;
 
-	bool isPlaying;
+
+	bool isPlaying, isActive;
 	// Update is called once per frame
 	void Update ()
 	{
@@ -25,12 +26,14 @@ public class WalkieHandler : MonoBehaviour {
 	public void StartWalkie ()
 	{
 		self.SetTrigger ("paddleOver");
+		isActive = true;
 	}
 
 	void OnMouseDown()
 	{
-		if (self.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.onScreen	"))
+		if (isActive)
 		{
+			print ("click");
 			self.SetTrigger ("Click");
 			VO.Play ();
 			isPlaying = true;
