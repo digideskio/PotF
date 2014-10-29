@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\AudioDiary\PhotoPlayer.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\ResetButton.cs" />
      <Compile Include="Assets\Scripts\AudioDiary\SubmitButton.cs" />
+     <Compile Include="Assets\Scripts\Chapter.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Button\ButtonLayout.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Button\OnClick.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\DreamSymbols\RotateOnClick.cs" />
      <Compile Include="Assets\Scripts\DreamSymbols\WalkieHandler.cs" />
      <Compile Include="Assets\Scripts\Main Menu\InnerMenuButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\ProfileList.cs" />
      <Compile Include="Assets\Scripts\Main Menu\SkullClick.cs" />
@@ -73,6 +75,7 @@
      <Compile Include="Assets\Scripts\Mazes\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\Mazes\RandomDrift.cs" />
      <Compile Include="Assets\Scripts\Mazes\camAnimation.cs" />
+     <Compile Include="Assets\Scripts\ProgressManager.cs" />
      <Compile Include="Assets\Scripts\SortingLayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
