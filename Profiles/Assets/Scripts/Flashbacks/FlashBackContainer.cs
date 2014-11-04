@@ -7,7 +7,7 @@ public class FlashBackContainer : MonoBehaviour {
 
 	public GameObject submit, reset;
 	public List<string> flashBackNames;
-	public Text firstText, secondText, thirdText;
+	public List<Text> listOfTextObjs;
 
 	public static List<FlashBacks> flashBackList;
 
@@ -28,32 +28,31 @@ public class FlashBackContainer : MonoBehaviour {
 
 	void Update()
 	{
+		for (int i = 0; i < flashBackList.Count; i++)
+		{
+			switch (flashBackList[i])
+			{
+			case FlashBacks.First : listOfTextObjs[i].text = flashBackNames[0]; break;
+			case FlashBacks.Second : listOfTextObjs[i].text = flashBackNames[1]; break;
+			case FlashBacks.Third : listOfTextObjs[i].text = flashBackNames[2]; break;
+			}
+		}
+
 		if (flashBackList.Count > 0)
 		{
-			reset.SetActive (true);
-			if (flashBackList[0] == FlashBacks.First)
-				firstText.text = flashBackNames[0];
-			if (flashBackList.Count > 1)
-			{
-				if (flashBackList[1] == FlashBacks.Second)
-					secondText.text = flashBackNames[1];
-				if (flashBackList.Count > 2)
-				{
-					if (flashBackList[2] == FlashBacks.Third)
-						thirdText.text = flashBackNames[2];
-				}
-			}
-
-
+			reset.SetActive(true);
 		}
 
 		if (flashBackList.Count == 0)
 		{
 			submit.SetActive (false);
 			reset.SetActive (false);
-			firstText.text = "";
-			secondText.text = "";
-			thirdText.text = "";
+			if (listOfTextObjs.Count == 1)
+				listOfTextObjs[0].text = "";
+			if (listOfTextObjs.Count == 2);
+				listOfTextObjs[1].text = "";
+			if (listOfTextObjs.Count == 3)
+				listOfTextObjs[2].text = "";
 		}
 		if (flashBackList.Count == 3)
 			if (flashBackList[0] == FlashBacks.First && flashBackList[1] == FlashBacks.Second && flashBackList[2] == FlashBacks.Third)
