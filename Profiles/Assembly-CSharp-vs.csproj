@@ -46,12 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioDiary\FlashBack.cs" />
-     <Compile Include="Assets\Scripts\AudioDiary\FlashBackContainer.cs" />
-     <Compile Include="Assets\Scripts\AudioDiary\ImageController.cs" />
-     <Compile Include="Assets\Scripts\AudioDiary\PhotoPlayer.cs" />
-     <Compile Include="Assets\Scripts\AudioDiary\ResetButton.cs" />
-     <Compile Include="Assets\Scripts\AudioDiary\SubmitButton.cs" />
      <Compile Include="Assets\Scripts\Chapter.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Scripts\ChatInterface\Button\ButtonLayout.cs" />
@@ -66,6 +60,12 @@
      <Compile Include="Assets\Scripts\DreamSymbols\ImageDrift.cs" />
      <Compile Include="Assets\Scripts\DreamSymbols\RotateOnClick.cs" />
      <Compile Include="Assets\Scripts\DreamSymbols\WalkieHandler.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\FlashBack.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\FlashBackContainer.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\ImageController.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\PhotoPlayer.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\ResetButton.cs" />
+     <Compile Include="Assets\Scripts\Flashbacks\SubmitButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\InnerMenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuButton.cs" />
