@@ -47,12 +47,9 @@ public class FlashBackContainer : MonoBehaviour {
 		{
 			submit.SetActive (false);
 			reset.SetActive (false);
-			if (listOfTextObjs.Count == 1)
-				listOfTextObjs[0].text = "";
-			if (listOfTextObjs.Count == 2);
-				listOfTextObjs[1].text = "";
-			if (listOfTextObjs.Count == 3)
-				listOfTextObjs[2].text = "";
+			listOfTextObjs[0].text = "";
+			listOfTextObjs[1].text = "";
+			listOfTextObjs[2].text = "";
 		}
 		if (flashBackList.Count == 3)
 			if (flashBackList[0] == FlashBacks.First && flashBackList[1] == FlashBacks.Second && flashBackList[2] == FlashBacks.Third)
