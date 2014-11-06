@@ -16,6 +16,8 @@ public class MenuButton : MonoBehaviour {
 	{
 		image.SetTrigger ("Enter");
 		image.ResetTrigger ("Exit");
+		onHover.Play ();
+
 
 		switch (dimension)
 		{

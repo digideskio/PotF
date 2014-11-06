@@ -67,10 +67,12 @@
      <Compile Include="Assets\Scripts\Flashbacks\ResetButton.cs" />
      <Compile Include="Assets\Scripts\Flashbacks\SubmitButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\InnerMenuButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\Load.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\ProfileList.cs" />
      <Compile Include="Assets\Scripts\Main Menu\SkullClick.cs" />
+     <Compile Include="Assets\Scripts\Main Menu\StartNew.cs" />
      <Compile Include="Assets\Scripts\Main Menu\VideoController.cs" />
      <Compile Include="Assets\Scripts\Mazes\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\Mazes\RandomDrift.cs" />
