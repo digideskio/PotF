@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Flashbacks\PhotoPlayer.cs" />
      <Compile Include="Assets\Scripts\Flashbacks\ResetButton.cs" />
      <Compile Include="Assets\Scripts\Flashbacks\SubmitButton.cs" />
+     <Compile Include="Assets\Scripts\Help.cs" />
      <Compile Include="Assets\Scripts\Main Menu\InnerMenuButton.cs" />
      <Compile Include="Assets\Scripts\Main Menu\Load.cs" />
      <Compile Include="Assets\Scripts\Main Menu\MainMenuController.cs" />

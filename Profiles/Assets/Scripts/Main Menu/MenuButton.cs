@@ -7,17 +7,17 @@ public enum Dimension {Present, Past, Future};
 public class MenuButton : MonoBehaviour {
 
 	public Dimension dimension;
-	public Animator image, buttonText;
+	public Animator image;
 	public Image imageGO;
 	public AudioSource onHover, onClick;
 	public Animator presentText, pastText, futureText;
+	public string levelName;
 
 	void OnMouseEnter()
 	{
 		image.SetTrigger ("Enter");
 		image.ResetTrigger ("Exit");
 		onHover.Play ();
-
 
 		switch (dimension)
 		{
@@ -41,10 +41,21 @@ public class MenuButton : MonoBehaviour {
 	
 	void OnMouseDown()
 	{
-		if (image.GetCurrentAnimatorStateInfo(0).IsName("Hover"))
+		if (image.GetCurrentAnimatorStateInfo(0).IsName("Highlighted"))
 		{
-			image.SetTrigger ("Click");
-			onClick.Play ();
+			if (dimension == Dimension.Present)
+			{
+				image.SetTrigger ("Click");
+				GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");			
+				StartCoroutine(LoadLevel());
+				onClick.Play ();
+			}
 		}
+	}
+	
+	IEnumerator LoadLevel()
+	{
+		yield return new WaitForSeconds (1);
+		Application.LoadLevel (levelName);
 	}
 }
