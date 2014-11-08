@@ -13,6 +13,8 @@ public class MenuButton : MonoBehaviour {
 	public Animator presentText, pastText, futureText;
 	public string levelName;
 
+	public void SetDimension (Dimension dimensionx){dimension = dimensionx;}
+
 	void OnMouseEnter()
 	{
 		image.SetTrigger ("Enter");
