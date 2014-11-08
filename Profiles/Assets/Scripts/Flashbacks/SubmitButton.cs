@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SubmitButton : MonoBehaviour {
 
-	public GameObject submit, reset, divisor, fadeIn;
+	public GameObject submit, reset, fadeIn;
 	public AudioSource audioDiary, jason, splash;
 	bool isPressed = false;
 
@@ -14,7 +14,6 @@ public class SubmitButton : MonoBehaviour {
 		fadeIn.SetActive (true);
 		submit.SetActive (false);
 		reset.SetActive (false);
-		divisor.SetActive (false);
 		audioDiary.Play ();
 		jason.Play ();
 		splash.Play ();
