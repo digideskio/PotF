@@ -80,6 +80,10 @@
      <Compile Include="Assets\Scripts\Mazes\camAnimation.cs" />
      <Compile Include="Assets\Scripts\ProgressManager.cs" />
      <Compile Include="Assets\Scripts\SortingLayer.cs" />
+     <Compile Include="Assets\Scripts\SubLevel\SubLevel.cs" />
+     <Compile Include="Assets\Scripts\SubLevel\SubLevelAsset.cs" />
+     <Compile Include="Assets\Scripts\SubLevel\SubLevelElement.cs" />
+     <Compile Include="Assets\Scripts\SubLevel\SubLevelInitializer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
