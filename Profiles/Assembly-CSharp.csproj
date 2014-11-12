@@ -80,6 +80,8 @@
      <Compile Include="Assets\Source\Mazes\camAnimation.cs" />
      <Compile Include="Assets\Source\ProgressManager.cs" />
      <Compile Include="Assets\Source\SortingLayer.cs" />
+     <Compile Include="Assets\Source\SubLevel\ExitToVideo.cs" />
+     <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevel.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelAsset.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelElement.cs" />
