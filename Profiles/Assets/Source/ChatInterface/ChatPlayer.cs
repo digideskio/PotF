@@ -88,7 +88,8 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	IEnumerator CloseChat(){
 		//fade out, play a transition sound
 		yield return new WaitForSeconds(4.0f);
-		//load nextLevel
+		ProgressManager.Chat = false;
+		Application.LoadLevel(ProgressManager.level.ToString());
 	}
 	
 	public void DisplayCharacterSentence(string characterInput, Characters character)
@@ -191,11 +192,6 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 			}
 		}
 		return false;
-	}
-
-	public void PlayClickWord ()
-	{
-
 	}
 
 }

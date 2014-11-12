@@ -16,7 +16,7 @@ public class MenuButton : MonoBehaviour {
 	public void SetDimension (Dimension dimensionx) {dimension = dimensionx;}
 
 	void Awake ()
-	{
+	{ 
 		Image buttonPNG = GetComponentInParent<Image> ();
 		buttonPNG.sprite = Resources.Load ("Art/MainMenu/ButtonSmall", typeof(Sprite)) as Sprite;
 	}

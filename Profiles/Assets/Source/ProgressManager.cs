@@ -5,7 +5,7 @@ using System.Collections;
 public class ProgressManager : MonoBehaviour {
 
 	public static int level = 1;
-	public static int subLevel = 1;
+	public static int subLevel = 0;
 	public static bool AutoSymbolism = true;
 	public static bool FlashBack = true;
 	public static bool Maze = true;

@@ -11,17 +11,17 @@ public class WalkieHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (self.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.playing"))
-	    {
+
 			if (isPlaying)
 			{
 				if (VO.isPlaying == false)
 				{
-//					Application.LoadLevel
+					ProgressManager.AutoSymbolism = false;
+					print ("over");
+					Application.LoadLevel(ProgressManager.level.ToString());
 				}
 			}
 		}
-	}
 
 	public void StartWalkie ()
 	{
@@ -33,6 +33,7 @@ public class WalkieHandler : MonoBehaviour {
 	{
 		if (isActive)
 		{
+			isActive = false;
 			print ("click");
 			self.SetTrigger ("Click");
 			VO.Play ();

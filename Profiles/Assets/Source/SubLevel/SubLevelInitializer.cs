@@ -11,24 +11,28 @@ public class SubLevelInitializer : MonoBehaviour {
 	{
 		if (ProgressManager.AutoSymbolism == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Autosymbolism != "")
 		{
+			autosymbolismButton.SetActive(true);
 			autosymbolismButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Autosymbolism;
 			autosymbolismButton.SetActive(true);
 		}
 
 		if (ProgressManager.Maze == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Maze != "")
 		{
+			mazeButton.SetActive(true);
 			mazeButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Maze;
 			mazeButton.SetActive(true);
 		}
 
 		if (ProgressManager.Chat == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Chat != "")
 		{
+			chatButton.SetActive(true);
 			chatButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Chat;
 			chatButton.SetActive(true);
 		}
 
 		if (ProgressManager.FlashBack == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Flashback != "")
 		{
+			flashbackButton.SetActive(true);
 			flashbackButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Flashback;
 			flashbackButton.SetActive(true);
 		}
