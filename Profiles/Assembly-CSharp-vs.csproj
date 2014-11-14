@@ -57,6 +57,7 @@
      <Compile Include="Assets\Source\ChatInterface\Dialogue\DialogueElement.cs" />
      <Compile Include="Assets\Source\ChatInterface\SisterAnimation.cs" />
      <Compile Include="Assets\Source\DreamSymbols\Chap1Condition.cs" />
+     <Compile Include="Assets\Source\DreamSymbols\Chap2Condition.cs" />
      <Compile Include="Assets\Source\DreamSymbols\ImageDrift.cs" />
      <Compile Include="Assets\Source\DreamSymbols\RotateOnClick.cs" />
      <Compile Include="Assets\Source\DreamSymbols\WalkieHandler.cs" />
