@@ -8,6 +8,7 @@ public class ReachOut : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
+		print ("reach");
 		if (hasNotReachedOut)
 		{
 			pink1.SetActive (false);
