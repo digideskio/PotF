@@ -5,6 +5,8 @@ public class Chap2Condition : MonoBehaviour {
 
 	public Animator jacket, camerax;
 	bool isPinkReadytoHoldHand;
+	public GameObject walkie;
+	public Animator BG, pink, jason, ball;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +22,16 @@ public class Chap2Condition : MonoBehaviour {
 				camerax.SetTrigger("Pan");
 			}
 		}
+
+	}
+
+	public void TriggerWalkie()
+	{
+		walkie.GetComponentInChildren<WalkieHandler> ().StartWalkie ();
+		BG.SetTrigger ("fadeOut");
+		pink.SetTrigger ("fadeOut");
+		jason.SetTrigger ("fadeOut");
+		ball.SetTrigger ("fadeOut");
 
 	}
 }

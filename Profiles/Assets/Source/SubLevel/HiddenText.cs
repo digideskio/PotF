@@ -7,11 +7,6 @@ public class HiddenText : MonoBehaviour {
 	public Animator image, buttonText;
 	public AudioSource onHover;
 	
-	void Awake ()
-	{
-		Image buttonPNG = GetComponentInParent<Image> ();
-	}
-	
 	void OnMouseEnter()
 	{
 		onHover.Play ();
