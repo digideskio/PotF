@@ -62,6 +62,7 @@
      <Compile Include="Assets\Source\DreamSymbols\ImageDrift.cs" />
      <Compile Include="Assets\Source\DreamSymbols\ReachOut.cs" />
      <Compile Include="Assets\Source\DreamSymbols\RotateOnClick.cs" />
+     <Compile Include="Assets\Source\DreamSymbols\StripTease.cs" />
      <Compile Include="Assets\Source\DreamSymbols\WalkieHandler.cs" />
      <Compile Include="Assets\Source\Flashbacks\FlashBack.cs" />
      <Compile Include="Assets\Source\Flashbacks\FlashBackContainer.cs" />
