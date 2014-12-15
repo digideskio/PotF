@@ -4,14 +4,30 @@ using UnityEngine.UI;
 
 public class StripTease : MonoBehaviour {
 
-	public Image[] stripMode;
+	public GameObject bat;
+	public GameObject walkie;
+	public Animator BG;
+
+	public GameObject[] stripMode;
 	int i = 0;
 
-	void OnTriggerEnter() {
-		if (i < 7) {
-			stripMode[i].enabled = false;
+	void OnMouseDown() {
+		if (i < 6) {
+			stripMode[i].SetActive(false);
 			i++;
-			stripMode[i].enabled = true;
+			print (i);
+			stripMode[i].SetActive(true);
 		}
+		else if (i == 6) {
+			bat.GetComponent<Animator>().SetTrigger("Thrust");
+			StartCoroutine("EnableWalkie");
+		}
+	}
+
+	IEnumerator EnableWalkie() {
+		yield return new WaitForSeconds (4);
+		walkie.GetComponentInChildren<WalkieHandler> ().StartWalkie ();
+		BG.SetTrigger ("fadeOut");
+
 	}
 }
