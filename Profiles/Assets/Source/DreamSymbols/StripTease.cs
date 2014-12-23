@@ -25,9 +25,12 @@ public class StripTease : MonoBehaviour {
 	}
 
 	IEnumerator EnableWalkie() {
-		yield return new WaitForSeconds (4);
+		yield return new WaitForSeconds (7);
 		walkie.GetComponentInChildren<WalkieHandler> ().StartWalkie ();
 		BG.SetTrigger ("fadeOut");
+		bat.GetComponent<Animator>().SetTrigger("fadeout");
+		bat.GetComponent<Animator>().SetTrigger("fadeout");
+
 
 	}
 }
