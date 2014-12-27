@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SliceOar : MonoBehaviour {
 
 	public GameObject corpse;
 
-	Animator thisOar;
+	public Animator thisOar;
 	void Start() {
-		thisOar = GetComponent<Animator> ();
-	}
-
-	void OnMousedown() {
 		print ("trigger");
-		thisOar.SetTrigger ("Slice");
 	}
 
+	void OnMouseDown() {
+		Debug.Log ("I am gay");
+	}
 
 }
