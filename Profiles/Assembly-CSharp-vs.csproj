@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SliceOar.cs" />
      <Compile Include="Assets\Source\Chapter.cs" />
      <Compile Include="Assets\Source\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\ButtonLayout.cs" />
@@ -63,8 +62,10 @@
      <Compile Include="Assets\Source\DreamSymbols\Chap2Condition.cs" />
      <Compile Include="Assets\Source\DreamSymbols\Dismemberment.cs" />
      <Compile Include="Assets\Source\DreamSymbols\ImageDrift.cs" />
+     <Compile Include="Assets\Source\DreamSymbols\OpenBackBack.cs" />
      <Compile Include="Assets\Source\DreamSymbols\ReachOut.cs" />
      <Compile Include="Assets\Source\DreamSymbols\RotateOnClick.cs" />
+     <Compile Include="Assets\Source\DreamSymbols\SliceOar.cs" />
      <Compile Include="Assets\Source\DreamSymbols\StripTease.cs" />
      <Compile Include="Assets\Source\DreamSymbols\WalkieHandler.cs" />
      <Compile Include="Assets\Source\Flashbacks\FlashBack.cs" />
