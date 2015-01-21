@@ -4,8 +4,9 @@ using System.Collections;
 public class Chap2Condition : MonoBehaviour {
 
 	public Animator jacket, camerax;
-	public GameObject pink1, pink2;
 	bool isPinkReadytoHoldHand;
+	public GameObject walkie;
+	public Animator BG, pink, jason, ball;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,12 +16,22 @@ public class Chap2Condition : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown (0))
 		{
-			if (jacket.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Clickable"))
+			if (camerax.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Clickable"))
 			{
 				//set camera movement animation
 				camerax.SetTrigger("Pan");
 			}
 		}
+
+	}
+
+	public void TriggerWalkie()
+	{
+		walkie.GetComponentInChildren<WalkieHandler> ().StartWalkie ();
+		BG.SetTrigger ("fadeOut");
+		pink.SetTrigger ("fadeOut");
+		jason.SetTrigger ("fadeOut");
+		ball.SetTrigger ("fadeOut");
 
 	}
 }
