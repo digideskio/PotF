@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Dismemberment : MonoBehaviour {
-
+	public Animator BG, Walkie, corpse;
 	public enum DismembermentStates {both, left, right, none};
 	public GameObject bothLimbsIntact, leftLimbGone, rightLimbGone, noLimbsLeft, currentLimbObject;
 	public DismembermentStates currentState = DismembermentStates.none;
@@ -37,7 +37,13 @@ public class Dismemberment : MonoBehaviour {
 		case DismembermentStates.none : currentLimbObject = bothLimbsIntact; currentLimbObject.SetActive(true); break;
 		case DismembermentStates.left : currentLimbObject.SetActive(false); currentLimbObject = leftLimbGone; currentLimbObject.SetActive(true); print("stateleft");break;
 		case DismembermentStates.right : currentLimbObject.SetActive(false); currentLimbObject = rightLimbGone; currentLimbObject.SetActive(true); print("stateright");break;
-		case DismembermentStates.both : currentLimbObject.SetActive(false); currentLimbObject = noLimbsLeft; currentLimbObject.SetActive(true); print("statenone");break;
+		case DismembermentStates.both : currentLimbObject.SetActive(false); currentLimbObject = noLimbsLeft; currentLimbObject.SetActive(true); StartCoroutine("StartWalkie");break;
 		}	
+	}
+
+	IEnumerator StartWalkie () {
+		yield return new WaitForSeconds (3);
+		BG.SetTrigger ("fadeOut");
+		Walkie.SetTrigger ("paddleOver");
 	}
 }
