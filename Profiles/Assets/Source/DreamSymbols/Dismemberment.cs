@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Dismemberment : MonoBehaviour {
-	public Animator BG, Walkie, corpse;
+	public Animator BG,corpse;
 	public enum DismembermentStates {both, left, right, none};
-	public GameObject bothLimbsIntact, leftLimbGone, rightLimbGone, noLimbsLeft, currentLimbObject;
+	public GameObject bothLimbsIntact, leftLimbGone, rightLimbGone, noLimbsLeft, currentLimbObject, Walkie;
 	public DismembermentStates currentState = DismembermentStates.none;
 	public Animator leftLimbDismemberment, rightLimbDismemberment;
 
@@ -43,7 +43,8 @@ public class Dismemberment : MonoBehaviour {
 
 	IEnumerator StartWalkie () {
 		yield return new WaitForSeconds (3);
+		noLimbsLeft.GetComponent<FadeOut> ().StartFade ();
 		BG.SetTrigger ("fadeOut");
-		Walkie.SetTrigger ("paddleOver");
+		Walkie.GetComponent<WalkieHandler>().StartWalkie();
 	}
 }

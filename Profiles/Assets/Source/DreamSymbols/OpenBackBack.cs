@@ -5,7 +5,7 @@ public class OpenBackBack : MonoBehaviour {
 
 	public GameObject bp1, bp2;
 	public Animator pink1;
-	bool isOpened = false;
+	bool isOpened = false, done = false;
 
 	void OnMouseDown () {
 		if (isOpened == false) {
@@ -14,7 +14,9 @@ public class OpenBackBack : MonoBehaviour {
 			isOpened = true;
 		}
 
-		else if (isOpened) {
+		else if (isOpened && done == false) {
+			bp2.GetComponent<FadeOut>().StartFade();
+			done = true;
 			pink1.SetTrigger("fade");
 			GameObject.Find ("LeftOar").GetComponent<SliceOar>().canSlice = true;
 			GameObject.Find ("RightOar").GetComponent<SliceOar>().canSlice = true;
