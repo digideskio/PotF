@@ -11,6 +11,9 @@ public class ProgressManager : MonoBehaviour {
 	public static bool Maze = true;
 	public static bool Chat = true;
 
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
 
 	public static void IncrementLevel()
 	{

@@ -91,6 +91,7 @@
      <Compile Include="Assets\Source\ProgressManager.cs" />
      <Compile Include="Assets\Source\ScrollingUVs.cs" />
      <Compile Include="Assets\Source\SortingLayer.cs" />
+     <Compile Include="Assets\Source\SoundtrackManager.cs" />
      <Compile Include="Assets\Source\SubLevel\ExitToVideo.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevel.cs" />
