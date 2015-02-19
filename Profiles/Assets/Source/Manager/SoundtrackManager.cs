@@ -17,9 +17,9 @@ public class SoundtrackManager : MonoBehaviour {
 	}
 
 	IEnumerator FadeOutAudioSource(AudioSource x) {
-		int counter = 10;
-		while (x.volume > 0) {
-			x.volume -= .1;
+		while (x.volume > 0.0f) {
+			x.volume -= 0.1f;
+			yield return new WaitForSeconds(0.1f);
 		}
 	}
 

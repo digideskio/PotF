@@ -46,9 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FadeOut.cs" />
-     <Compile Include="Assets\Holder.cs" />
-     <Compile Include="Assets\Source\Chapter.cs" />
      <Compile Include="Assets\Source\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\ButtonLayout.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\OnClick.cs" />
@@ -76,22 +73,23 @@
      <Compile Include="Assets\Source\Flashbacks\PhotoPlayer.cs" />
      <Compile Include="Assets\Source\Flashbacks\ResetButton.cs" />
      <Compile Include="Assets\Source\Flashbacks\SubmitButton.cs" />
-     <Compile Include="Assets\Source\Help.cs" />
+     <Compile Include="Assets\Source\Main Menu\Chapter.cs" />
+     <Compile Include="Assets\Source\Main Menu\Help.cs" />
+     <Compile Include="Assets\Source\Main Menu\Holder.cs" />
      <Compile Include="Assets\Source\Main Menu\InnerMenuButton.cs" />
      <Compile Include="Assets\Source\Main Menu\Load.cs" />
      <Compile Include="Assets\Source\Main Menu\MainMenuController.cs" />
      <Compile Include="Assets\Source\Main Menu\MenuButton.cs" />
-     <Compile Include="Assets\Source\Main Menu\ProfileList.cs" />
-     <Compile Include="Assets\Source\Main Menu\SkullClick.cs" />
      <Compile Include="Assets\Source\Main Menu\StartNew.cs" />
      <Compile Include="Assets\Source\Main Menu\VideoController.cs" />
+     <Compile Include="Assets\Source\Manager\ProgressManager.cs" />
+     <Compile Include="Assets\Source\Manager\SortingLayer.cs" />
+     <Compile Include="Assets\Source\Manager\SoundtrackManager.cs" />
      <Compile Include="Assets\Source\Mazes\FirstPersonController.cs" />
      <Compile Include="Assets\Source\Mazes\RandomDrift.cs" />
      <Compile Include="Assets\Source\Mazes\camAnimation.cs" />
-     <Compile Include="Assets\Source\ProgressManager.cs" />
-     <Compile Include="Assets\Source\ScrollingUVs.cs" />
-     <Compile Include="Assets\Source\SortingLayer.cs" />
-     <Compile Include="Assets\Source\SoundtrackManager.cs" />
+     <Compile Include="Assets\Source\SpecialEffects\FadeOut.cs" />
+     <Compile Include="Assets\Source\SpecialEffects\ScrollingUVs.cs" />
      <Compile Include="Assets\Source\SubLevel\ExitToVideo.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevel.cs" />
