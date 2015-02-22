@@ -9,7 +9,7 @@ public class MainMenuController : MonoBehaviour {
 
 	void Start()
 	{
-		switch (ProgressManager.level)
+		switch (GameManager.s_instance.subLevel)
 		{
 		case 1 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Present);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Future);
@@ -18,8 +18,22 @@ public class MainMenuController : MonoBehaviour {
 			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			break;
+		case 2 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			break;
 		
-		case 2 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+		case 3 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			break;
+		case 4 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Present);
 			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Future);
@@ -27,7 +41,7 @@ public class MainMenuController : MonoBehaviour {
 			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			break;
 
-		case 3 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+		case 5 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Present);
 			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Future);
@@ -35,7 +49,22 @@ public class MainMenuController : MonoBehaviour {
 			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			break;
 
-		case 4 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+		case 6 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			break;
+
+		case 7 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			break;
+		case 8 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Present);
@@ -43,7 +72,15 @@ public class MainMenuController : MonoBehaviour {
 			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			break;
 
-		case 5 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+		case 9 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
+			break;
+		
+		case 10 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Past);
@@ -51,7 +88,15 @@ public class MainMenuController : MonoBehaviour {
 			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Future);
 			break;
 
-		case 6 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+		case 11 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[4].GetComponent<MenuButton>().SetDimension(Dimension.Past);
+			menuButtons[5].GetComponent<MenuButton>().SetDimension(Dimension.Present);
+			break;
+
+		case 12 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[1].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[2].GetComponent<MenuButton>().SetDimension(Dimension.Past);
 			menuButtons[3].GetComponent<MenuButton>().SetDimension(Dimension.Past);

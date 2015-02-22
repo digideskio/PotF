@@ -2,8 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
+public enum LevelType {Maze, Chat, AutoSymbolism, Flashback};
+
+
+//handles the actual loading of Levels like maze1, chat1, etc etc etc also lets GameManager when level is played
+
 public class InnerMenuButton : MonoBehaviour {
 
+	public LevelType levelType;
 	public string levelName;
 	public Animator image, buttonText;
 	public Image imageGO;
@@ -34,7 +40,8 @@ public class InnerMenuButton : MonoBehaviour {
 		{
 			image.SetTrigger ("Click");
 			onClick.Play ();
-			GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");			
+			GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");	
+			GameManager.s_instance.MarkAsComplete(levelType);
 			StartCoroutine(LoadLevel());
 		}
 	}

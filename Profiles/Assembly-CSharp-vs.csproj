@@ -73,6 +73,7 @@
      <Compile Include="Assets\Source\Flashbacks\PhotoPlayer.cs" />
      <Compile Include="Assets\Source\Flashbacks\ResetButton.cs" />
      <Compile Include="Assets\Source\Flashbacks\SubmitButton.cs" />
+     <Compile Include="Assets\Source\GameManager.cs" />
      <Compile Include="Assets\Source\Main Menu\Chapter.cs" />
      <Compile Include="Assets\Source\Main Menu\Help.cs" />
      <Compile Include="Assets\Source\Main Menu\Holder.cs" />
@@ -82,7 +83,6 @@
      <Compile Include="Assets\Source\Main Menu\MenuButton.cs" />
      <Compile Include="Assets\Source\Main Menu\StartNew.cs" />
      <Compile Include="Assets\Source\Main Menu\VideoController.cs" />
-     <Compile Include="Assets\Source\Manager\ProgressManager.cs" />
      <Compile Include="Assets\Source\Manager\SortingLayer.cs" />
      <Compile Include="Assets\Source\Manager\SoundtrackManager.cs" />
      <Compile Include="Assets\Source\Mazes\FirstPersonController.cs" />
@@ -90,9 +90,7 @@
      <Compile Include="Assets\Source\Mazes\camAnimation.cs" />
      <Compile Include="Assets\Source\SpecialEffects\FadeOut.cs" />
      <Compile Include="Assets\Source\SpecialEffects\ScrollingUVs.cs" />
-     <Compile Include="Assets\Source\SubLevel\ExitToVideo.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
-     <Compile Include="Assets\Source\SubLevel\SubLevel.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelAsset.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelElement.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelInitializer.cs" />

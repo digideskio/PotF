@@ -16,9 +16,8 @@ public class WalkieHandler : MonoBehaviour {
 			{
 				if (VO.isPlaying == false)
 				{
-					ProgressManager.AutoSymbolism = false;
-					print ("over");
-					Application.LoadLevel(ProgressManager.level.ToString());
+					GameManager.s_instance.isAutoSymbolismComplete = true;
+					Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 				}
 			}
 		}

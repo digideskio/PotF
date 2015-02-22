@@ -12,8 +12,5 @@ public class Holder : MonoBehaviour {
 		temp = Resources.Load ("Art/MainMenu/ButtonSmall", typeof(Sprite)) as Sprite;
 		placeHolderSprite.sprite = temp;
 	}
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

@@ -88,8 +88,8 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	IEnumerator CloseChat(){
 		//fade out, play a transition sound
 		yield return new WaitForSeconds(4.0f);
-		ProgressManager.Chat = false;
-		Application.LoadLevel(ProgressManager.level.ToString());
+		GameManager.s_instance.isChatComplete = true;
+		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 	}
 	
 	public void DisplayCharacterSentence(string characterInput, Characters character)

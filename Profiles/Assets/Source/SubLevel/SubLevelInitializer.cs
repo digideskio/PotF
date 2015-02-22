@@ -2,47 +2,62 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+//sets up what is left to do in each interaction section, or sublevel
 public class SubLevelInitializer : MonoBehaviour {
 
 	public GameObject mazeButton, autosymbolismButton, chatButton, flashbackButton;
-	public SubLevel subLevelData;
+	public SubLevelElement subLevelData;
 
-	// looks at ProgressManager to initialize buttons which lead to other level using their string values which are called from sublevelassets
 	void Start ()
 	{
-		if (ProgressManager.AutoSymbolism == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Autosymbolism != "")
+		if (GameManager.s_instance.isAutoSymbolismComplete == false && subLevelData.Autosymbolism != "")
 		{
 			autosymbolismButton.SetActive(true);
-			autosymbolismButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Autosymbolism;
-			autosymbolismButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.SubLevelItems[ProgressManager.subLevel].Aname;
+			autosymbolismButton.GetComponentInChildren<Text>().text = subLevelData.Autosymbolism;
+			autosymbolismButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Aname;
 			autosymbolismButton.SetActive(true);
 		}
 
-		if (ProgressManager.Maze == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Maze != "")
+		//if there is no sublevel data for autosymbolism, call it complete
+		else {
+			GameManager.s_instance.isAutoSymbolismComplete = true;
+		}
+
+		if (GameManager.s_instance.isMazeComplete == true && subLevelData.Maze != "")
 		{
 			mazeButton.SetActive(true);
-			mazeButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.SubLevelItems[ProgressManager.subLevel].Mname;
-
-			mazeButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Maze;
+			mazeButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Mname;
+			mazeButton.GetComponentInChildren<Text>().text = subLevelData.Maze;
 			mazeButton.SetActive(true);
 		}
-
-		if (ProgressManager.Chat == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Chat != "")
-		{
-			chatButton.SetActive(true);
-			chatButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.SubLevelItems[ProgressManager.subLevel].Cname;
-
-			chatButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Chat;
-			chatButton.SetActive(true);
+		else {
+			GameManager.s_instance.isMazeComplete = true;
 		}
 
-		if (ProgressManager.FlashBack == true && subLevelData.SubLevelItems[ProgressManager.subLevel].Flashback != "")
+
+		if (GameManager.s_instance.isChatComplete == true && subLevelData.Chat != "")
+		{
+			chatButton.SetActive(true);
+			chatButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Cname;
+			chatButton.GetComponentInChildren<Text>().text = subLevelData.Chat;
+			chatButton.SetActive(true);
+		}
+		else {
+			GameManager.s_instance.isChatComplete = true;
+		}
+
+
+		if (GameManager.s_instance.isFlashbackComplete == true && subLevelData.Flashback != "")
 		{
 			flashbackButton.SetActive(true);
-			flashbackButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.SubLevelItems[ProgressManager.subLevel].Fname;
-
-			flashbackButton.GetComponentInChildren<Text>().text = subLevelData.SubLevelItems[ProgressManager.subLevel].Flashback;
+			flashbackButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Fname;
+			flashbackButton.GetComponentInChildren<Text>().text = subLevelData.Flashback;
 			flashbackButton.SetActive(true);
 		}
+		else {
+			GameManager.s_instance.isFlashbackComplete = true;
+		}
+
 	}
 }

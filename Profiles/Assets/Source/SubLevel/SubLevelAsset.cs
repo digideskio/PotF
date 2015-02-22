@@ -16,7 +16,7 @@ public class SubLevelAsset {
 	[MenuItem("Assets/Create/SubLevel")]
 	public static void CreateAsset ()
 	{
-		CustomAssetUtility.CreateAsset<SubLevel>(); //Dialogue which is a scriptable object allow us to create an instance of it which does not need to be attached to gameobject / is not a monobehaviour
+		CustomAssetUtility.CreateAsset<SubLevelElement>(); //holds the strings naming the sublevels of each instance of interactivity
 	}
 }
 #endif
