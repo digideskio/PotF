@@ -15,7 +15,7 @@ public class SubLevelInitializer : MonoBehaviour {
 		{
 			autosymbolismButton.SetActive(true);
 			autosymbolismButton.GetComponentInChildren<Text>().text = subLevelData.Autosymbolism;
-			autosymbolismButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Aname;
+			autosymbolismButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.aLevelName;
 			autosymbolismButton.SetActive(true);
 		}
 
@@ -27,7 +27,7 @@ public class SubLevelInitializer : MonoBehaviour {
 		if (GameManager.s_instance.isMazeComplete == true && subLevelData.Maze != "")
 		{
 			mazeButton.SetActive(true);
-			mazeButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Mname;
+			mazeButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.mLevelName;
 			mazeButton.GetComponentInChildren<Text>().text = subLevelData.Maze;
 			mazeButton.SetActive(true);
 		}
@@ -39,7 +39,7 @@ public class SubLevelInitializer : MonoBehaviour {
 		if (GameManager.s_instance.isChatComplete == true && subLevelData.Chat != "")
 		{
 			chatButton.SetActive(true);
-			chatButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Cname;
+			chatButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.cLevelName;
 			chatButton.GetComponentInChildren<Text>().text = subLevelData.Chat;
 			chatButton.SetActive(true);
 		}
@@ -51,7 +51,7 @@ public class SubLevelInitializer : MonoBehaviour {
 		if (GameManager.s_instance.isFlashbackComplete == true && subLevelData.Flashback != "")
 		{
 			flashbackButton.SetActive(true);
-			flashbackButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.Fname;
+			flashbackButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.fLevelName;
 			flashbackButton.GetComponentInChildren<Text>().text = subLevelData.Flashback;
 			flashbackButton.SetActive(true);
 		}
