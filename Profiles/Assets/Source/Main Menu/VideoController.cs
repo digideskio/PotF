@@ -5,24 +5,25 @@ using System.Collections;
 public class VideoController : MonoBehaviour {
 
 	//Assign Class Variable
-	public MovieTexture movie;
+	public MovieTexture[] movies;
 
 	//Initialize
 	void Start () {
 		//set the video as the class variable
-		movie = renderer.material.mainTexture as MovieTexture;
+		movies[GameManager.s_instance.subLevel] = renderer.material.mainTexture as MovieTexture;
 		//play the video
-		movie.Play ();
+		movies[GameManager.s_instance.subLevel].Play ();
 	}
 	
 //	 Update is called once per frame
 	void Update () {
 		//if the movie is done playing
-		if (movie.isPlaying == false)
+		if (movies[GameManager.s_instance.subLevel].isPlaying == false)
 		
 		{
 			//load login screen
-			Application.LoadLevel("login_scn");
+			GameManager.s_instance.subLevel++;
+			Application.LoadLevel(GameManager.s_instance.subLevel);
 		}
 	}
 }
