@@ -29,6 +29,9 @@ public class FirstPersonController : MonoBehaviour {
 		float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed; //request speed from input which is already mapped to asdw
 		float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed; //request speed from input which is already mapped to asdw
 
+		if (Input.GetMouseButton (0))
+			forwardSpeed = movementSpeed;
+		
 		Vector3 speed = new Vector3 (sideSpeed, 0, forwardSpeed); //create a direction vector from forwardSpeed
 
 		speed = transform.rotation * speed; //changes the vector direction of speed to match rotation direction

@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FadeIn.cs" />
      <Compile Include="Assets\Source\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\ButtonLayout.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\OnClick.cs" />
@@ -94,6 +95,7 @@
      <Compile Include="Assets\Source\SubLevel\SubLevelAsset.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelElement.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelInitializer.cs" />
+     <Compile Include="Assets\WinCondition.cs" />
      <None Include="Assets\Standard Assets\Glass Refraction (Pro Only)\Sources\Shaders\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />

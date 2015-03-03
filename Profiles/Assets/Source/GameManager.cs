@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	}
 
-	public int subLevel = 0;
+	public int subLevel = 0; //there are 11 sublevels, they represent the 
 
 	public void MarkAsComplete(LevelType level) {
 		switch (level) {
@@ -42,4 +42,9 @@ public class GameManager : MonoBehaviour {
 		isAutoSymbolismComplete = false;
 	}
 
+	public void PlayAudioFile(string soundName) {
+		GameObject audioObj = GameObject.Find (soundName);
+		if (audioObj!=null)
+			audioObj.GetComponent<AudioSource>().Play();
+	}
 }

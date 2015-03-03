@@ -40,6 +40,8 @@ public class camAnimation : MonoBehaviour {
 	void Update () {
 		float inputX = Input.GetAxis("Horizontal"); //Keyboard input to determine if player is moving
 		float inputY = Input.GetAxis("Vertical");
+		if (Input.GetMouseButton (0))
+						inputX = 1;
 		
 		if(inputX  != 0 || inputY != 0){
 			isMoving = true;	
