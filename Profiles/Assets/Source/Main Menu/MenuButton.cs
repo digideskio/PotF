@@ -11,7 +11,6 @@ public class MenuButton : MonoBehaviour {
 	public Image imageGO;
 	public AudioSource onHover, onClick;
 	public Animator presentText, pastText, futureText;
-	public string levelName;
 
 	public void SetDimension (Dimension dimensionx) {dimension = dimensionx;}
 
@@ -55,6 +54,7 @@ public class MenuButton : MonoBehaviour {
 			{
 				image.SetTrigger ("Click");
 				GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");			
+				GameManager.s_instance.subLevel++;
 				StartCoroutine(LoadLevel());
 				onClick.Play ();
 			}
@@ -64,6 +64,6 @@ public class MenuButton : MonoBehaviour {
 	IEnumerator LoadLevel ()
 	{
 		yield return new WaitForSeconds (1);
-		Application.LoadLevel (levelName);
+		Application.LoadLevel (GameManager.s_instance.subLevel.ToString());
 	}
 }
