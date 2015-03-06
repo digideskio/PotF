@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public enum LevelType {Maze, Chat, AutoSymbolism, Flashback};
+public enum LevelType {Maze, Chat, AutoSymbolism, Flashback, Video};
 
 
 //handles the actual loading of Levels like maze1, chat1, etc etc etc also lets GameManager when level is played

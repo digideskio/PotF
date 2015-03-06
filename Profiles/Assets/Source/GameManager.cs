@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	void Awake() {
 		s_instance = this;
 		DontDestroyOnLoad (gameObject);
+		MarkAllIncomplete ();
 	}
 
 	public int subLevel = 0; //there are 11 sublevels, they represent the 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void LoadNext() {
+		print ("LoadNext");
 		subLevel ++;
 		if (subLevel == 6)
 			Application.LoadLevel ("maze1"); //in the one case that you have to go from video to maze

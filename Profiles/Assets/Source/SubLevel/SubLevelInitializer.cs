@@ -7,57 +7,43 @@ using UnityEngine.UI;
 public class SubLevelInitializer : MonoBehaviour {
 
 	public GameObject mazeButton, autosymbolismButton, chatButton, flashbackButton;
-	public SubLevelElement subLevelData;
 
 	void Start ()
 	{
-		if (GameManager.s_instance.isAutoSymbolismComplete == false && subLevelData.Autosymbolism != "")
-		{
-			autosymbolismButton.SetActive(true);
-			autosymbolismButton.GetComponentInChildren<Text>().text = subLevelData.Autosymbolism;
-			autosymbolismButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.aLevelName;
-			autosymbolismButton.SetActive(true);
-		}
 
-		//if there is no sublevel data for autosymbolism, call it complete
-		else {
-			GameManager.s_instance.isAutoSymbolismComplete = true;
-		}
-
-		if (GameManager.s_instance.isMazeComplete == true && subLevelData.Maze != "")
-		{
-			mazeButton.SetActive(true);
-			mazeButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.mLevelName;
-			mazeButton.GetComponentInChildren<Text>().text = subLevelData.Maze;
-			mazeButton.SetActive(true);
-		}
-		else {
+		//if there is no button call it complete, and if it is complete, do not show the button, double setting here but who cares
+		if (mazeButton != null || GameManager.s_instance.isMazeComplete == true) {
 			GameManager.s_instance.isMazeComplete = true;
+			if (mazeButton.activeSelf)
+				mazeButton.SetActive(false);
+		}
+		//auto
+		if (autosymbolismButton != null || GameManager.s_instance.isAutoSymbolismComplete == true) {
+			GameManager.s_instance.isAutoSymbolismComplete = true;
+			if (autosymbolismButton.activeSelf)
+				autosymbolismButton.SetActive(false);
 		}
 
-
-		if (GameManager.s_instance.isChatComplete == true && subLevelData.Chat != "")
-		{
-			chatButton.SetActive(true);
-			chatButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.cLevelName;
-			chatButton.GetComponentInChildren<Text>().text = subLevelData.Chat;
-			chatButton.SetActive(true);
-		}
-		else {
+		//chat
+		if (chatButton != null || GameManager.s_instance.isChatComplete == true) {
 			GameManager.s_instance.isChatComplete = true;
+			if (chatButton.activeSelf)
+				chatButton.SetActive(false);
 		}
 
-
-		if (GameManager.s_instance.isFlashbackComplete == true && subLevelData.Flashback != "")
-		{
-			flashbackButton.SetActive(true);
-			flashbackButton.GetComponentInChildren<InnerMenuButton>().levelName = subLevelData.fLevelName;
-			flashbackButton.GetComponentInChildren<Text>().text = subLevelData.Flashback;
-			flashbackButton.SetActive(true);
-		}
-		else {
+		//flashBack
+		if (flashbackButton != null || GameManager.s_instance.isFlashbackComplete == true) {
 			GameManager.s_instance.isFlashbackComplete = true;
+			if (flashbackButton.activeSelf)
+				flashbackButton.SetActive(false);
 		}
+
+		if (GameManager.s_instance.isChatComplete && GameManager.s_instance.isFlashbackComplete
+		    && GameManager.s_instance.isMazeComplete && GameManager.s_instance.isAutoSymbolismComplete) {
+			GameObject.Find("Leave").GetComponent<Image>().enabled = true;
+			GameObject.Find ("Leave").GetComponentInChildren<BoxCollider2D>().enabled = true;
+		}
+
 
 	}
 }
