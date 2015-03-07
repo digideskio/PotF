@@ -54,7 +54,6 @@ public class MenuButton : MonoBehaviour {
 			{
 				image.SetTrigger ("Click");
 				GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");			
-				GameManager.s_instance.subLevel++;
 				StartCoroutine(LoadLevel());
 				onClick.Play ();
 			}

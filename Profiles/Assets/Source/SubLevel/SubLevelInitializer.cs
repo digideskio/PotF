@@ -10,29 +10,37 @@ public class SubLevelInitializer : MonoBehaviour {
 
 	void Start ()
 	{
+		if (mazeButton == null)
+			GameManager.s_instance.isMazeComplete = true;
+		if (autosymbolismButton == null)
+			GameManager.s_instance.isAutoSymbolismComplete = true;
+		if (chatButton == null)
+			GameManager.s_instance.isChatComplete = true;
+		if (flashbackButton == null)
+			GameManager.s_instance.isFlashbackComplete = true;
 
 		//if there is no button call it complete, and if it is complete, do not show the button, double setting here but who cares
-		if (mazeButton != null || GameManager.s_instance.isMazeComplete == true) {
+		if (mazeButton != null && GameManager.s_instance.isMazeComplete == true) {
 			GameManager.s_instance.isMazeComplete = true;
 			if (mazeButton.activeSelf)
 				mazeButton.SetActive(false);
 		}
 		//auto
-		if (autosymbolismButton != null || GameManager.s_instance.isAutoSymbolismComplete == true) {
+		if (autosymbolismButton != null && GameManager.s_instance.isAutoSymbolismComplete == true) {
 			GameManager.s_instance.isAutoSymbolismComplete = true;
 			if (autosymbolismButton.activeSelf)
 				autosymbolismButton.SetActive(false);
 		}
 
 		//chat
-		if (chatButton != null || GameManager.s_instance.isChatComplete == true) {
+		if (chatButton != null && GameManager.s_instance.isChatComplete == true) {
 			GameManager.s_instance.isChatComplete = true;
 			if (chatButton.activeSelf)
 				chatButton.SetActive(false);
 		}
 
 		//flashBack
-		if (flashbackButton != null || GameManager.s_instance.isFlashbackComplete == true) {
+		if (flashbackButton != null && GameManager.s_instance.isFlashbackComplete == true) {
 			GameManager.s_instance.isFlashbackComplete = true;
 			if (flashbackButton.activeSelf)
 				flashbackButton.SetActive(false);
