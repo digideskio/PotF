@@ -1,29 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))] //adds an audiocomponent
 
 public class VideoController : MonoBehaviour {
-
-	//Assign Class Variable
-	public MovieTexture[] movies;
-
-	//Initialize
-	void Start () {
-		//set the video as the class variable
-		movies[GameManager.s_instance.subLevel] = renderer.material.mainTexture as MovieTexture;
-		//play the video
-		movies[GameManager.s_instance.subLevel].Play ();
+	MovieTexture movie;
+	void Start(){
+		movie = renderer.material.mainTexture as MovieTexture;
+		audio.clip = movie.audioClip;
+		audio.Play ();
+		movie.Play ();
 	}
-	
-//	 Update is called once per frame
-	void Update () {
-		//if the movie is done playing
-		if (movies[GameManager.s_instance.subLevel].isPlaying == false)
-		
-		{
-			//load login screen
-			GameManager.s_instance.subLevel++;
-			Application.LoadLevel(GameManager.s_instance.subLevel);
+
+	void Update() {
+		if (!movie.isPlaying) {
+			GameManager.s_instance.subLevel ++;
+			Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 		}
 	}
 }
