@@ -3,27 +3,24 @@ using System.Collections;
 
 public class SoundtrackManager : MonoBehaviour {
 
-	public AudioSource[] arrayOfAudioSources;
-	public AudioSource current1, current2, current3;
+	public AudioSource pink, water, drowning, chat, melancholy, ambient, jacob, wind; //soundtrack files
+	public static SoundtrackManager s_instance;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void Awake () {
+		s_instance = this; 
+		DontDestroyOnLoad (gameObject); //persist through scenes
 	}
 
-	IEnumerator FadeOutAudioSource(AudioSource x) {
-		while (x.volume > 0.0f) {
+	IEnumerator FadeOutAudioSource(AudioSource x) { //call from elsewhere
+		while (x.volume > 0.0f) {					//where x is sound track file
 			x.volume -= 0.1f;
 			yield return new WaitForSeconds(0.1f);
 		}
+		x.Stop ();
 	}
 
-	public void PlayAudioSource() {
-
+	public void PlayAudioSource(AudioSource x) { //call from elsewhere
+		x.volume = 1;
+		x.Play ();
 	}
 }

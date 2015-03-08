@@ -17,12 +17,16 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 	public Button submit, reset;
 	public string nextLevel;
 
-	public AudioSource jason, sister, background, song, logout, login, clickWord, resetButton;
+	public AudioSource jason, sister, song, logout, login, clickWord, resetButton;
 
 	void Start () {
 		currentCharacter = dialogueFile.DialogItems [0].character; //sets conversation with character listed in the first element of dialogue
 		style.richText = true; //allows html modifications to text
 		StepsisterCycle (); //kicks off the conversation
+		if (currentCharacter == Characters.Pink)
+			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.pink);
+		else
+			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.chat);
 	}
 
 	void NextDialogueItem () //progresses forward to the next element in the Dialogue
@@ -87,6 +91,10 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 
 	IEnumerator CloseChat(){
 		//fade out, play a transition sound
+		if (currentCharacter == Characters.Pink)
+			SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource",SoundtrackManager.s_instance.pink);
+		else
+			SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource",SoundtrackManager.s_instance.chat);
 		yield return new WaitForSeconds(4.0f);
 		GameManager.s_instance.isChatComplete = true;
 		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());

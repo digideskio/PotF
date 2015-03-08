@@ -10,6 +10,20 @@ public class SubLevelInitializer : MonoBehaviour {
 
 	void Start ()
 	{
+		switch (GameManager.s_instance.subLevel) {
+		case 1 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.drowning);break;
+		case 2 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 3 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 4 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 5 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.jacob);break;
+		case 6 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 7 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.drowning);break;
+		case 8 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 9 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.jacob);break;
+		case 10 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 11 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+
+		}
 		if (mazeButton == null)
 			GameManager.s_instance.isMazeComplete = true;
 		if (autosymbolismButton == null)

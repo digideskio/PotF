@@ -53,6 +53,7 @@ public class MenuButton : MonoBehaviour {
 			if (dimension == Dimension.Present)
 			{
 				image.SetTrigger ("Click");
+				SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource", SoundtrackManager.s_instance.water);
 				GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>().SetTrigger("Fade");			
 				StartCoroutine(LoadLevel());
 				onClick.Play ();

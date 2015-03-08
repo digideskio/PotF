@@ -9,6 +9,7 @@ public class MainMenuController : MonoBehaviour {
 
 	void Start()
 	{
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
 		switch (GameManager.s_instance.subLevel)
 		{
 		case 1 : menuButtons[0].GetComponent<MenuButton>().SetDimension(Dimension.Present);
