@@ -25,6 +25,7 @@ public class VideoController : MonoBehaviour {
 	void EndVideoScene() {
 
 		GameManager.s_instance.subLevel ++;
+		GameManager.s_instance.MarkAllIncomplete ();
 		Application.LoadLevel("MainMenu");
 
 	}

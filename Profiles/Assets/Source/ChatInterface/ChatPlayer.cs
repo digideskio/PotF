@@ -95,7 +95,7 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 			SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource",SoundtrackManager.s_instance.pink);
 		else
 			SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource",SoundtrackManager.s_instance.chat);
-		yield return new WaitForSeconds(4.0f);
+		yield return new WaitForSeconds(2.0f);
 		GameManager.s_instance.isChatComplete = true;
 		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 	}
