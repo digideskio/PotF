@@ -14,7 +14,7 @@ public class WinCondition : MonoBehaviour {
 		GameObject.Find ("whiteOut").GetComponent<FadeIn>().StartFade();
 		yield return new WaitForSeconds (4f);
 		Time.timeScale = 1f;
-//		Application.LoadLevel (GameManager.s_instance.subLevel);
+		Application.LoadLevel (GameManager.s_instance.subLevel);
 
 	}
 }
