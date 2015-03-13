@@ -35,6 +35,9 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public void StartSlideShow ()
 	{
+		SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.wind);
+		StartCoroutine ("LoadMenu");
+		print ("slideshow");
 		isPlaying = true;
 		photos[counter].SetActive(true);
 		StartCoroutine ("Pause");
@@ -53,6 +56,14 @@ public class PhotoPlayer : MonoBehaviour {
 			yield return new WaitForSeconds(skipRate);
 			SkipPhoto ();
 		}
+	}
+
+	IEnumerator LoadMenu() {
+		print ("LoadMenu");
+		yield return new WaitForSeconds (10);
+		SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.wind);
+		print ("loading");
+		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 	}
 
 	void Update()
