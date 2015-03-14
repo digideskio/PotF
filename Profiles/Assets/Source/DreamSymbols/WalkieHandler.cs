@@ -16,6 +16,7 @@ public class WalkieHandler : MonoBehaviour {
 			{
 				if (VO.isPlaying == false)
 				{
+					SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.water);		
 					GameManager.s_instance.isAutoSymbolismComplete = true;
 					Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 				}
