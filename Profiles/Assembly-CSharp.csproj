@@ -89,6 +89,7 @@
      <Compile Include="Assets\Source\Mazes\FirstPersonController.cs" />
      <Compile Include="Assets\Source\Mazes\RandomDrift.cs" />
      <Compile Include="Assets\Source\Mazes\camAnimation.cs" />
+     <Compile Include="Assets\Source\RotateInfinite.cs" />
      <Compile Include="Assets\Source\SpecialEffects\FadeOut.cs" />
      <Compile Include="Assets\Source\SpecialEffects\ScrollingUVs.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />

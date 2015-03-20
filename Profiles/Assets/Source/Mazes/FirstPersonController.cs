@@ -31,6 +31,8 @@ public class FirstPersonController : MonoBehaviour {
 
 		if (Input.GetMouseButton (0))
 			forwardSpeed = movementSpeed;
+		else if (Input.GetMouseButton (1))
+			forwardSpeed = -movementSpeed;
 		
 		Vector3 speed = new Vector3 (sideSpeed, 0, forwardSpeed); //create a direction vector from forwardSpeed
 
