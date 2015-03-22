@@ -88,13 +88,13 @@
      <Compile Include="Assets\Source\Manager\SoundtrackManager.cs" />
      <Compile Include="Assets\Source\Mazes\FirstPersonController.cs" />
      <Compile Include="Assets\Source\Mazes\RandomDrift.cs" />
+     <Compile Include="Assets\Source\Mazes\WinCondition.cs" />
      <Compile Include="Assets\Source\Mazes\camAnimation.cs" />
      <Compile Include="Assets\Source\RotateInfinite.cs" />
      <Compile Include="Assets\Source\SpecialEffects\FadeOut.cs" />
      <Compile Include="Assets\Source\SpecialEffects\ScrollingUVs.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelInitializer.cs" />
-     <Compile Include="Assets\WinCondition.cs" />
      <None Include="Assets\Standard Assets\Glass Refraction (Pro Only)\Sources\Shaders\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Picture Frames Pack\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Specular.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
