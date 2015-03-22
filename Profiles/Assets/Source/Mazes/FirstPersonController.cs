@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FirstPersonController : MonoBehaviour {
 
+	public bool inWater = false;
 	public float movementSpeed = 5.0f;
 	public float mouseSensitivity = 2.0f;
 	public float upDownRange = 60.0f;
@@ -10,9 +11,15 @@ public class FirstPersonController : MonoBehaviour {
 	public AudioSource[] footSteps;
 	AudioSource currentFootstep = null;
 	int upperMax;
+	float cooldown = .5f, fadeSpeed = 0.15f;
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
+		if (inWater) {
+			cooldown = .5f;
+			movementSpeed = 3.0f;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -55,7 +62,7 @@ public class FirstPersonController : MonoBehaviour {
 		if (currentFootstep == null) {
 			upperMax = footSteps.Length;
 			int footStepIndex = Random.Range (0, upperMax);
-			currentFootstep = footSteps [footStepIndex];
+			currentFootstep = (AudioSource)Instantiate(footSteps [footStepIndex]);
 			currentFootstep.volume = 0.5f;
 			currentFootstep.Play ();
 			//a timer could work starttime = Time.time, a counter is always counting in update, a bool is set for footstep playing, and it goes off after timer catches up to timeTilFootstep can play
@@ -65,14 +72,16 @@ public class FirstPersonController : MonoBehaviour {
 	}
 
 	IEnumerator NullifyFootstep() {
-		yield return new WaitForSeconds (.5f);
+		yield return new WaitForSeconds (cooldown);
 		currentFootstep = null;
 	}
 
 	IEnumerator CeaseFootstep() {
-		while (currentFootstep!=null && currentFootstep.volume > 0.0f) {					//where x is sound track file
-		currentFootstep.volume -= 0.1f;
-		yield return new WaitForSeconds (0.15f);
+		if (!inWater) {
+			while (currentFootstep!=null && currentFootstep.volume > 0.0f) {					//where x is sound track file
+				currentFootstep.volume -= 0.1f;
+				yield return new WaitForSeconds (fadeSpeed);
+			}
 		}
 	}
 
