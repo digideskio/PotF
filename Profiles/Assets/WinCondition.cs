@@ -9,6 +9,7 @@ public class WinCondition : MonoBehaviour {
 
 	IEnumerator Win() {
 		Time.timeScale = 0.5f;
+		GameObject.Find ("PortraitText").GetComponent<FadeIn> ().StartFade ();
 //		GameManager.s_instance.PlayAudioFile ("winMaze");
 		yield return new WaitForSeconds (7f);
 		GameObject.Find ("whiteOut").GetComponent<FadeIn>().StartFade();
