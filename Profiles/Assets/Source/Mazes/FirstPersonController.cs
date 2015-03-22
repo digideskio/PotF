@@ -7,6 +7,9 @@ public class FirstPersonController : MonoBehaviour {
 	public float mouseSensitivity = 2.0f;
 	public float upDownRange = 60.0f;
 	public float verticalRotation = 0.0f;
+	public AudioSource[] footSteps;
+	AudioSource currentFootstep = null;
+	int upperMax;
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
@@ -42,6 +45,20 @@ public class FirstPersonController : MonoBehaviour {
 
 		cc.SimpleMove (speed); //move controller
 	
+	}
+
+	void PlayFootStep(){
+		if (currentFootstep == null) {
+			upperMax = footSteps.Length;
+			int footStepIndex = Random.Range (0, upperMax);
+			currentFootstep = footSteps [footStepIndex];
+			currentFootstep.Play ();
+			while (currentFootstep.isPlaying){
+				//do nothing
+			}
+			currentFootstep = null;
+
+		}
 	}
 
 
