@@ -22,7 +22,8 @@ public class Chap1Condition : MonoBehaviour {
 		}
 	}
 	void Start(){
-//		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
 	}
 	// Update is called once per frame
 	void Update () {

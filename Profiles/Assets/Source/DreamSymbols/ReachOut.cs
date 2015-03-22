@@ -14,7 +14,18 @@ public class ReachOut : MonoBehaviour {
 			pink1.SetActive (false);
 			pink2.SetActive (true);
 			hasNotReachedOut = false;
+			GameObject.Find("baseballHit").GetComponent<AudioSource>().Play();
+			GameObject.Find("cL").GetComponent<AudioSource>().Play();
+
+			StartCoroutine("PlayWalkie");
 		}
 	}
+
+	IEnumerator PlayWalkie() {
+		yield return new WaitForSeconds (4);
+		Chap2Condition.s_instance.TriggerWalkie ();
+
+	}
+
 
 }

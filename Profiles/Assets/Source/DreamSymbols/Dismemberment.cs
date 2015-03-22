@@ -8,6 +8,12 @@ public class Dismemberment : MonoBehaviour {
 	public DismembermentStates currentState = DismembermentStates.none;
 	public Animator leftLimbDismemberment, rightLimbDismemberment;
 
+	void Start(){
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.insignificance);
+	}
+
 	public void DismemberRight() {
 		if (currentState == DismembermentStates.none) {
 			currentState = DismembermentStates.left;
@@ -16,8 +22,7 @@ public class Dismemberment : MonoBehaviour {
 		else if (currentState == DismembermentStates.right)
 			currentState = DismembermentStates.both;
 		UpdateCorpse ();
-		print ("updateR");
-		print (currentState);
+		GameObject.Find ("hitR").GetComponent<AudioSource> ().Play ();
 	}
 
 	public void DismemberLeft() {
@@ -26,8 +31,7 @@ public class Dismemberment : MonoBehaviour {
 		else if (currentState == DismembermentStates.left)
 			currentState = DismembermentStates.both;
 		UpdateCorpse ();
-		print ("updateL");
-		print (currentState);
+		GameObject.Find ("hitL").GetComponent<AudioSource> ().Play ();
 
 
 	}

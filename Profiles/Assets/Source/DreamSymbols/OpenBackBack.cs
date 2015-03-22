@@ -12,6 +12,8 @@ public class OpenBackBack : MonoBehaviour {
 			bp1.SetActive (false);
 			bp2.SetActive (true);
 			isOpened = true;
+			GameObject.Find("bpO").GetComponent<AudioSource>().Play ();
+
 		}
 
 		else if (isOpened && done == false) {
@@ -20,16 +22,15 @@ public class OpenBackBack : MonoBehaviour {
 			pink1.SetTrigger("fade");
 			GameObject.Find ("LeftOar").GetComponent<SliceOar>().canSlice = true;
 			GameObject.Find ("RightOar").GetComponent<SliceOar>().canSlice = true;
+			GameObject.Find("bpR").GetComponent<AudioSource>().Play ();
+			StartCoroutine("Kill");
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-	
+	IEnumerator Kill(){
+		yield return new WaitForSeconds (1.5f);
+		GameObject.Find ("kill").GetComponent<AudioSource> ().Play ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
 }

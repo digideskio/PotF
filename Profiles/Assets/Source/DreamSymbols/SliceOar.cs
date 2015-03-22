@@ -15,13 +15,16 @@ public class SliceOar : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		thisOar.SetTrigger ("Slice");
 		if (!isRight && canSlice) {
+			thisOar.SetTrigger ("Slice");
+
 			corpse.GetComponent<Dismemberment> ().DismemberRight ();
 			leftArm.SetActive(true);
 			leftArm.GetComponent<Animator>().SetTrigger("Slice");
 		}
 		else if(isRight && canSlice) {
+			thisOar.SetTrigger ("Slice");
+
 			corpse.GetComponent<Dismemberment> ().DismemberLeft ();
 			rightArm.SetActive(true);
 			rightArm.GetComponent<Animator>().SetTrigger("Slice");

@@ -24,7 +24,7 @@ public class FadeIn : MonoBehaviour {
 			if (image!=null)
 				image.color = Color.Lerp (new Color (1f, 1f, 1f, 0f), new Color (1f, 1f, 1f, 1f), fracJourney);
 			if (text!=null)
-				text.color = Color.Lerp (new Color (1f, 1f, 1f, 0f), new Color (1f, 1f, 1f, .7f), fracJourney);;
+				text.color = Color.Lerp (new Color (1f, 1f, 1f, 0f), new Color (1f, 1f, 1f, .7f), fracJourney);
 		}
 	}
 	

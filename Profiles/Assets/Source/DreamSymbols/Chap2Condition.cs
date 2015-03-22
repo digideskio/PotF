@@ -6,12 +6,17 @@ public class Chap2Condition : MonoBehaviour {
 	public Animator jacket, camerax;
 	bool isPinkReadytoHoldHand;
 	public GameObject walkie;
-	public Animator BG, pink, jason, ball;
+	public Animator BG, pink, jason;
+	public static Chap2Condition s_instance;
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+		s_instance = this;
 	}
 
+	void Start(){
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0))
@@ -31,7 +36,5 @@ public class Chap2Condition : MonoBehaviour {
 		BG.SetTrigger ("fadeOut");
 		pink.SetTrigger ("fadeOut");
 		jason.SetTrigger ("fadeOut");
-		ball.SetTrigger ("fadeOut");
-
 	}
 }
