@@ -44,6 +44,10 @@ public class FirstPersonController : MonoBehaviour {
 		CharacterController cc = GetComponent<CharacterController> (); //find character controller
 
 		cc.SimpleMove (speed); //move controller
+		if (forwardSpeed != 0 || sideSpeed != 0)
+						PlayFootStep ();
+		if (forwardSpeed == 0 && sideSpeed == 0 && currentFootstep != null)
+						StartCoroutine ("CeaseFootstep");
 	
 	}
 
@@ -52,14 +56,26 @@ public class FirstPersonController : MonoBehaviour {
 			upperMax = footSteps.Length;
 			int footStepIndex = Random.Range (0, upperMax);
 			currentFootstep = footSteps [footStepIndex];
+			currentFootstep.volume = 0.5f;
 			currentFootstep.Play ();
-			while (currentFootstep.isPlaying){
-				//do nothing
-			}
-			currentFootstep = null;
-
+			//a timer could work starttime = Time.time, a counter is always counting in update, a bool is set for footstep playing, and it goes off after timer catches up to timeTilFootstep can play
+			//I use coroutine instead
+			StartCoroutine("NullifyFootstep");
 		}
 	}
+
+	IEnumerator NullifyFootstep() {
+		yield return new WaitForSeconds (.5f);
+		currentFootstep = null;
+	}
+
+	IEnumerator CeaseFootstep() {
+		while (currentFootstep!=null && currentFootstep.volume > 0.0f) {					//where x is sound track file
+		currentFootstep.volume -= 0.1f;
+		yield return new WaitForSeconds (0.15f);
+		}
+	}
+
 
 
 
