@@ -5,7 +5,7 @@ using System.Collections;
 public class SubmitButton : MonoBehaviour {
 
 	public GameObject submit, reset;
-	public AudioSource jason, splash, one, two, three, four, five;
+	public AudioSource jason, splash, one, two, three, four, five, six;
 	bool isPressed = false;
 
 
@@ -25,6 +25,8 @@ public class SubmitButton : MonoBehaviour {
 			four.Play ();
 		if (five != null)
 			five.Play ();
+		if (six != null)
+			six.Play ();
 		jason.Play ();
 		splash.Play ();
 		isPressed = true;
