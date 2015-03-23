@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FadeIn.cs" />
      <Compile Include="Assets\Source\ChatInterface\BlinkingCursor.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\ButtonLayout.cs" />
      <Compile Include="Assets\Source\ChatInterface\Button\OnClick.cs" />
@@ -68,6 +67,7 @@
      <Compile Include="Assets\Source\DreamSymbols\SliceOar.cs" />
      <Compile Include="Assets\Source\DreamSymbols\StripTease.cs" />
      <Compile Include="Assets\Source\DreamSymbols\WalkieHandler.cs" />
+     <Compile Include="Assets\Source\FadeIn.cs" />
      <Compile Include="Assets\Source\Flashbacks\FlashBack.cs" />
      <Compile Include="Assets\Source\Flashbacks\FlashBackContainer.cs" />
      <Compile Include="Assets\Source\Flashbacks\ImageController.cs" />

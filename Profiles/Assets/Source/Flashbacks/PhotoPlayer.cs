@@ -2,12 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum FlashBackLevel {one,two,three};
+
+
 public class PhotoPlayer : MonoBehaviour {
 
 	public List<GameObject> photos;
-	public float skipRate, pause;
+	public float skipRate, pause, waitTimeBeforeLoad;
 	int counter = 0;
 	bool isPlaying;
+	public FlashBackLevel thislevel;
+
+	void Start() {
+
+	}
 
 	public void OnClick ()
 	{
@@ -35,8 +43,19 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public void StartSlideShow ()
 	{
+		switch (thislevel) {
+		case FlashBackLevel.one:
+			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.donnie);
+			break;
+		case FlashBackLevel.two:
+			SoundtrackManager.s_instance.PlayAudioSource( SoundtrackManager.s_instance.three);
+			break;
+		case FlashBackLevel.three:
+			SoundtrackManager.s_instance.PlayAudioSource( SoundtrackManager.s_instance.insignificance);
+			break;
+		}
 		SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.wind);
-		StartCoroutine ("LoadMenu");
+		SoundtrackManager.s_instance.wind.volume = 0.3f;
 		print ("slideshow");
 		isPlaying = true;
 		photos[counter].SetActive(true);
@@ -59,10 +78,13 @@ public class PhotoPlayer : MonoBehaviour {
 	}
 
 	IEnumerator LoadMenu() {
-		print ("LoadMenu");
-		yield return new WaitForSeconds (10);
+		yield return new WaitForSeconds (waitTimeBeforeLoad);
 		SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.wind);
-		print ("loading");
+		switch (thislevel) {
+		case FlashBackLevel.one : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.donnie); break;
+		case FlashBackLevel.two : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.three); break;
+		case FlashBackLevel.three : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.insignificance); break;
+		}
 		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
 	}
 

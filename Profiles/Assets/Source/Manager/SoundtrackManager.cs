@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SoundtrackManager : MonoBehaviour {
 
-	public AudioSource pink, water, drowning, chat, melancholy, ambient, jacob, wind, lakeAmbient, megaAmbient, nightAmbience, insignificance; //soundtrack files
+	public AudioSource pink, water, drowning, chat, melancholy, ambient, jacob, wind, lakeAmbient, megaAmbient, nightAmbience, insignificance, donnie, three; //soundtrack files
 	public static SoundtrackManager s_instance;
 
 	void Awake () {
