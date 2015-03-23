@@ -63,7 +63,6 @@ public class FirstPersonController : MonoBehaviour {
 			upperMax = footSteps.Length;
 			int footStepIndex = Random.Range (0, upperMax);
 			currentFootstep = (AudioSource)Instantiate(footSteps [footStepIndex]);
-			Destroy(currentFootstep, currentFootstep.audio.clip.length);
 			currentFootstep.volume = 0.5f;
 			currentFootstep.Play ();
 			//a timer could work starttime = Time.time, a counter is always counting in update, a bool is set for footstep playing, and it goes off after timer catches up to timeTilFootstep can play
