@@ -4,15 +4,15 @@ using System.Collections;
 
 public class SubmitButton : MonoBehaviour {
 
-	public GameObject submit, reset, fadeIn;
+	public GameObject submit, reset;
 	public AudioSource jason, splash, one, two, three, four, five;
 	bool isPressed = false;
 
 
 	public void Submit()
 	{
+		GameObject.FindGameObjectWithTag ("StoryPlayer").GetComponent<PhotoPlayer> ().StartSlideShow ();
 		FlashBackContainer.ResetFlashbacks ();
-		fadeIn.SetActive (true);
 		submit.SetActive (false);
 		reset.SetActive (false);
 		if (one != null)
@@ -28,7 +28,6 @@ public class SubmitButton : MonoBehaviour {
 		jason.Play ();
 		splash.Play ();
 		isPressed = true;
-		GameObject.FindGameObjectWithTag ("StoryPlayer").GetComponent<PhotoPlayer> ().StartSlideShow ();
 	}
 
 }

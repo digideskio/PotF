@@ -95,6 +95,7 @@
      <Compile Include="Assets\Source\SpecialEffects\ScrollingUVs.cs" />
      <Compile Include="Assets\Source\SubLevel\HiddenText.cs" />
      <Compile Include="Assets\Source\SubLevel\SubLevelInitializer.cs" />
+     <Compile Include="Assets\VignetteRandomizer.cs" />
      <None Include="Assets\Standard Assets\Glass Refraction (Pro Only)\Sources\Shaders\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Picture Frames Pack\Hard Surface Free\HardSurface Shaders\HardSurfacePro Hidden Front Cut Out Specular.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />

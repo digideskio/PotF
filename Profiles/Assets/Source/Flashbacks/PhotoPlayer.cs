@@ -10,8 +10,9 @@ public class PhotoPlayer : MonoBehaviour {
 	public List<GameObject> photos;
 	public float skipRate, pause, waitTimeBeforeLoad;
 	int counter = 0;
-	bool isPlaying;
+	bool isPlaying, countdown = false;
 	public FlashBackLevel thislevel;
+	float timer,startTime;
 
 	void Start() {
 
@@ -43,20 +44,22 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public void StartSlideShow ()
 	{
+		startTime = Time.time;
+		countdown = true;
 		switch (thislevel) {
 		case FlashBackLevel.one:
 			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.donnie);
 			break;
 		case FlashBackLevel.two:
 			SoundtrackManager.s_instance.PlayAudioSource( SoundtrackManager.s_instance.three);
+			SoundtrackManager.s_instance.three.time = 60f;
 			break;
 		case FlashBackLevel.three:
 			SoundtrackManager.s_instance.PlayAudioSource( SoundtrackManager.s_instance.insignificance);
 			break;
 		}
 		SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.wind);
-		SoundtrackManager.s_instance.wind.volume = 0.3f;
-		print ("slideshow");
+		SoundtrackManager.s_instance.wind.volume = 0.1f;
 		isPlaying = true;
 		photos[counter].SetActive(true);
 		StartCoroutine ("Pause");
@@ -64,7 +67,7 @@ public class PhotoPlayer : MonoBehaviour {
 
 	IEnumerator Pause()
 	{
-		yield return new WaitForSeconds (pause);
+		yield return new WaitForSeconds (skipRate);
 		StartCoroutine (PlayPhotos());
 	}
 
@@ -77,16 +80,21 @@ public class PhotoPlayer : MonoBehaviour {
 		}
 	}
 
-	IEnumerator LoadMenu() {
-		yield return new WaitForSeconds (waitTimeBeforeLoad);
-		SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.wind);
-		switch (thislevel) {
-		case FlashBackLevel.one : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.donnie); break;
-		case FlashBackLevel.two : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.three); break;
-		case FlashBackLevel.three : SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.insignificance); break;
-		}
-		Application.LoadLevel(GameManager.s_instance.subLevel.ToString());
-	}
+	void LoadMenu() {
+						SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.wind);
+						switch (thislevel) {
+						case FlashBackLevel.one:
+								SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.donnie);
+								break;
+						case FlashBackLevel.two:
+								SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.three);
+								break;
+						case FlashBackLevel.three:
+								SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.insignificance);
+								break;
+						}
+						Application.LoadLevel (GameManager.s_instance.subLevel.ToString ());
+				}
 
 	void Update()
 	{
@@ -95,6 +103,13 @@ public class PhotoPlayer : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0))	
 				OnClick();
 		}
+		if (countdown){
+			timer = Time.time - startTime;
+			if (timer > waitTimeBeforeLoad) {
+				LoadMenu();
+		}
+	}
+
 
 	}
 
