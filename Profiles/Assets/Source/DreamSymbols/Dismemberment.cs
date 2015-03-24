@@ -23,6 +23,8 @@ public class Dismemberment : MonoBehaviour {
 			currentState = DismembermentStates.both;
 		UpdateCorpse ();
 		GameObject.Find ("hitR").GetComponent<AudioSource> ().Play ();
+		GameObject.Find ("hit").GetComponent<AudioSource> ().Play ();
+
 	}
 
 	public void DismemberLeft() {
@@ -32,6 +34,8 @@ public class Dismemberment : MonoBehaviour {
 			currentState = DismembermentStates.both;
 		UpdateCorpse ();
 		GameObject.Find ("hitL").GetComponent<AudioSource> ().Play ();
+		GameObject.Find ("hit").GetComponent<AudioSource> ().Play ();
+
 
 
 	}
