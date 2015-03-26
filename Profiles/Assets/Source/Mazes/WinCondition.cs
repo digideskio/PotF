@@ -7,8 +7,10 @@ public class WinCondition : MonoBehaviour {
 	bool hasWon = false;
 
 	void Start(){
-		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.megaAmbient);
-		soundtrack.Play ();
+		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
+		SoundtrackManager.s_instance.megaAmbient.volume = 0.1f;
+		if (soundtrack!=null){soundtrack.Play ();
+		}
 	}
 
 	void OnTriggerEnter() {
@@ -19,14 +21,18 @@ public class WinCondition : MonoBehaviour {
 	}
 
 	IEnumerator Win() {
-			StartCoroutine ("FadeOutAudioSource", soundtrack);
+			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.garby);
+		SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.nightAmbience);
+
+		StartCoroutine ("FadeOutAudioSource", soundtrack);
 			Time.timeScale = 0.5f;
 			GameObject.Find ("PortraitText").GetComponent<FadeIn> ().StartFade ();
-			yield return new WaitForSeconds (7f);
+			yield return new WaitForSeconds (15f);
 			GameObject.Find ("whiteOut").GetComponent<FadeIn>().StartFade();
 			yield return new WaitForSeconds (4f);
 			Time.timeScale = 1f;
-			SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.megaAmbient);
+			SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.garby);
+
 			Application.LoadLevel (GameManager.s_instance.subLevel);
 
 	}

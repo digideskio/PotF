@@ -9,6 +9,8 @@ public class MainMenuController : MonoBehaviour {
 
 	void Start()
 	{
+	
+
 		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.water);
 		switch (GameManager.s_instance.subLevel)
 		{
