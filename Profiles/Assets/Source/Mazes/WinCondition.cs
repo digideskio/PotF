@@ -5,8 +5,11 @@ public class WinCondition : MonoBehaviour {
 
 	public AudioSource soundtrack;
 	bool hasWon = false;
+	public GameObject picture;
 
 	void Start(){
+		picture = GameObject.Find ("Portrait");
+		picture.GetComponent<MeshRenderer> ().material.color = new Color (1f, 1f, 1f, 0f);
 		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
 		SoundtrackManager.s_instance.megaAmbient.volume = 0.1f;
 		if (soundtrack!=null){soundtrack.Play ();
@@ -17,6 +20,8 @@ public class WinCondition : MonoBehaviour {
 		if (!hasWon) {
 			hasWon = true;
 			StartCoroutine ("Win");
+			StartCoroutine ("FadeInPicture");
+
 		}
 	}
 
@@ -43,5 +48,14 @@ public class WinCondition : MonoBehaviour {
 			yield return new WaitForSeconds(0.3f);
 		}
 		x.Stop ();
+	}
+
+	IEnumerator FadeInPicture() { //call from elsewhere
+		float faderFloat = 0;
+		while (picture.GetComponent<MeshRenderer>().material.color.a < 1.0f) {					//where x is sound track file
+			picture.GetComponent<MeshRenderer>().material.color = new Color (1,1,1,faderFloat);
+			faderFloat+=.03f;
+			yield return new WaitForSeconds(0.04f);
+		}
 	}
 }

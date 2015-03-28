@@ -75,7 +75,7 @@ public class FirstPersonController : MonoBehaviour {
 
 	IEnumerator NullifyFootstep() {
 		yield return new WaitForSeconds (cooldown);
-		Destroy (currentFootstep);
+		currentFootstep = null;
 	}
 
 	IEnumerator CeaseFootstep() {
@@ -92,7 +92,8 @@ public class FirstPersonController : MonoBehaviour {
 			yield return new WaitForSeconds(4);
 			GameObject[] footsteps = GameObject.FindGameObjectsWithTag("foot");
 			foreach (GameObject f in footsteps)
-				Destroy(f);
+				if (f.GetComponent<AudioSource>().isPlaying == false)
+					Destroy(f);
 		
 		}
 	}
