@@ -14,6 +14,7 @@ public class FirstPersonController : MonoBehaviour {
 	float cooldown = .5f, fadeSpeed = 0.15f;
 	// Use this for initialization
 	void Start () {
+		StartCoroutine ("CleanUp");
 		Screen.lockCursor = true;
 		if (inWater) {
 			cooldown = .5f;
@@ -63,6 +64,7 @@ public class FirstPersonController : MonoBehaviour {
 			upperMax = footSteps.Length;
 			int footStepIndex = Random.Range (0, upperMax);
 			currentFootstep = (AudioSource)Instantiate(footSteps [footStepIndex]);
+			currentFootstep.tag = "foot";
 			currentFootstep.volume = 0.5f;
 			currentFootstep.Play ();
 			//a timer could work starttime = Time.time, a counter is always counting in update, a bool is set for footstep playing, and it goes off after timer catches up to timeTilFootstep can play
@@ -73,7 +75,7 @@ public class FirstPersonController : MonoBehaviour {
 
 	IEnumerator NullifyFootstep() {
 		yield return new WaitForSeconds (cooldown);
-		currentFootstep = null;
+		Destroy (currentFootstep);
 	}
 
 	IEnumerator CeaseFootstep() {
@@ -82,6 +84,16 @@ public class FirstPersonController : MonoBehaviour {
 				currentFootstep.volume -= 0.1f;
 				yield return new WaitForSeconds (fadeSpeed);
 			}
+		}
+	}
+
+	IEnumerator CleanUp(){
+		while (true) {
+			yield return new WaitForSeconds(4);
+			GameObject[] footsteps = GameObject.FindGameObjectsWithTag("foot");
+			foreach (GameObject f in footsteps)
+				Destroy(f);
+		
 		}
 	}
 

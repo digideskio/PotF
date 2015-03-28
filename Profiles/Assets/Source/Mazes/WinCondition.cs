@@ -22,9 +22,9 @@ public class WinCondition : MonoBehaviour {
 
 	IEnumerator Win() {
 			SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.garby);
-		SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.nightAmbience);
+			SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.nightAmbience);
 
-		StartCoroutine ("FadeOutAudioSource", soundtrack);
+			StartCoroutine ("FadeOutAudioSource", soundtrack);
 			Time.timeScale = 0.5f;
 			GameObject.Find ("PortraitText").GetComponent<FadeIn> ().StartFade ();
 			yield return new WaitForSeconds (15f);
