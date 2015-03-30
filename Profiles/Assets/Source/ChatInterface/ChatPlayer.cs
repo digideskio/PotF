@@ -110,7 +110,7 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 		case Characters.Stepsister : AddToDialogue ( "<color=#9970CB>Stepsister: </color>" + characterInput);
 			sister.Play ();
 			break;
-		case Characters.Pink : AddToDialogue ( "<color=#CB2EFF>Pink: </color>" + characterInput);
+		case Characters.Pink : AddToDialogue ( "<color=#FF74D9>Pink: </color>" + characterInput);
 			sister.Play ();
 			break;
 		case Characters.PinkLogOut : AddToDialogue ("<color=#646464>Pink has logged off. </color>");
