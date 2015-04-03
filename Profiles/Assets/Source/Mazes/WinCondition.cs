@@ -32,7 +32,7 @@ public class WinCondition : MonoBehaviour {
 			StartCoroutine ("FadeOutAudioSource", soundtrack);
 			Time.timeScale = 0.5f;
 			GameObject.Find ("PortraitText").GetComponent<FadeIn> ().StartFade ();
-			yield return new WaitForSeconds (15f);
+			yield return new WaitForSeconds (10f);
 			GameObject.Find ("whiteOut").GetComponent<FadeIn>().StartFade();
 			yield return new WaitForSeconds (4f);
 			Time.timeScale = 1f;
