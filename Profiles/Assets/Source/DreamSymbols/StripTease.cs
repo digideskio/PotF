@@ -7,6 +7,7 @@ public class StripTease : MonoBehaviour {
 	public GameObject bat;
 	public GameObject walkie;
 	public Animator BG;
+	bool hasPlayed = false;
 
 	public GameObject[] stripMode;
 	int i = 0;
@@ -29,11 +30,12 @@ public class StripTease : MonoBehaviour {
 			else 
 				GameObject.Find("cZ").GetComponent<AudioSource>().Play();
 		}
-		else if (i == 6) {
+		else if (i == 6 && hasPlayed == false) {
 			bat.GetComponent<Animator>().SetTrigger("Thrust");
 			StartCoroutine("EnableWalkie");
 			GameObject.Find("thrust").GetComponent<AudioSource>().Play();
 			GameObject.Find("slut").GetComponent<AudioSource>().Play();
+			hasPlayed = true;
 
 
 		}

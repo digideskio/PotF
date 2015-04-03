@@ -149,7 +149,11 @@ public class ChatPlayer : MonoBehaviour { //handles timer and delays + progress 
 				displayedSentences[i].text = dialogueTexts[i];
 				displayedSentences[i].rectTransform.anchoredPosition = new Vector2 (0.1f, (240.0f - (float)i * 60.0f));
 			}
-		}	
+		}
+
+		if (Input.GetMouseButtonDown(1)){
+			StartCoroutine("CloseChat");
+		}
 	}
 	
 	//The Following handles the accumulated sentence

@@ -37,8 +37,8 @@ public class WinCondition : MonoBehaviour {
 			yield return new WaitForSeconds (4f);
 			Time.timeScale = 1f;
 			SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.garby);
-
-			Application.LoadLevel (GameManager.s_instance.subLevel);
+			Screen.lockCursor = false;
+			Application.LoadLevel (GameManager.s_instance.subLevel.ToString());
 
 	}
 

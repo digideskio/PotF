@@ -6,6 +6,7 @@ using System.Collections;
 public class VideoController : MonoBehaviour {
 	public MovieTexture[] movies;
 	void Start(){
+		renderer.material.mainTexture = movies [GameManager.s_instance.subLevel];
 		movies[GameManager.s_instance.subLevel] = renderer.material.mainTexture as MovieTexture;
 		audio.clip = movies[GameManager.s_instance.subLevel].audioClip;
 		audio.Play ();
@@ -26,7 +27,10 @@ public class VideoController : MonoBehaviour {
 
 		GameManager.s_instance.subLevel ++;
 		GameManager.s_instance.MarkAllIncomplete ();
-		Application.LoadLevel("MainMenu");
+		if (GameManager.s_instance.subLevel != 6)
+			Application.LoadLevel("MainMenu");
+		else
+			Application.LoadLevel("Maze1");
 
 	}
 }

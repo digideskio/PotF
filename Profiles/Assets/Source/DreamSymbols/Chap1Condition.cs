@@ -8,6 +8,7 @@ public class Chap1Condition : MonoBehaviour {
 	public Animator BG;
 	public AudioSource snap, leftA,rightA;
 	bool right=false,left=false, hasSnapped=false;
+	public GameObject fadeout;
 
 	public void RightTrue(){
 		if (!right){
@@ -40,6 +41,7 @@ public class Chap1Condition : MonoBehaviour {
 	}
 
 	IEnumerator FadeOutOars() {
+		fadeout.SetActive (true);
 		yield return new WaitForSeconds (3);
 		leftOar.GetComponent<Animator> ().SetTrigger ("End");
 		rightOar.GetComponent<Animator> ().SetTrigger ("End");
