@@ -10,7 +10,7 @@ public class PhotoPlayer : MonoBehaviour {
 	public List<GameObject> photos;
 	public float skipRate, pause, waitTimeBeforeLoad;
 	int counter = 0;
-	bool isPlaying, countdown = false;
+	bool isPlaying, countdown = false, hasExited = false;
 	public FlashBackLevel thislevel;
 	float timer,startTime;
 
@@ -20,9 +20,11 @@ public class PhotoPlayer : MonoBehaviour {
 
 	public void OnClick ()
 	{
-		StopAllCoroutines ();
-		SkipPhoto ();
-		StartCoroutine (PlayPhotos());
+		if (timer < waitTimeBeforeLoad) {
+			StopAllCoroutines ();
+			SkipPhoto ();
+			StartCoroutine (PlayPhotos ());
+		}
 	}
 
 	void SkipPhoto ()
@@ -81,10 +83,8 @@ public class PhotoPlayer : MonoBehaviour {
 	}
 
 	void LoadMenu() {
-		GameObject.Find ("blackout").GetComponent<Image> ().enabled = true;
-		GameObject.Find ("blackout").GetComponent<FadeIn> ().StartFade ();
-		SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.wind);
-			switch (thislevel) {
+			StartCoroutine ("Exit");
+				switch (thislevel) {
 			case FlashBackLevel.one:
 					SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.donnie);
 					break;
@@ -95,7 +95,7 @@ public class PhotoPlayer : MonoBehaviour {
 					SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.insignificance);
 					break;
 			}
-		StartCoroutine ("Exit");
+
 	}
 
 	void Update()
@@ -107,16 +107,16 @@ public class PhotoPlayer : MonoBehaviour {
 		}
 		if (countdown){
 			timer = Time.time - startTime;
-			if (timer > waitTimeBeforeLoad) {
+			if (timer > waitTimeBeforeLoad && hasExited == false) {
+				hasExited = true;
 				LoadMenu();
 		}
 	}
-
-
 	}
 
 	IEnumerator Exit(){
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (.1f);
+		SoundtrackManager.s_instance.StartCoroutine ("FadeOutAudioSource", SoundtrackManager.s_instance.wind);
 		Application.LoadLevel (GameManager.s_instance.subLevel.ToString ());
 
 	}

@@ -10,10 +10,13 @@ public class SubLevelInitializer : MonoBehaviour {
 
 	void Start ()
 	{
+
 		switch (GameManager.s_instance.subLevel) {
 		case 1 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.melancholy);break;
 		case 2 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.drowning);break;
-		case 3 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
+		case 3 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);
+			flashbackButton = GameObject.Find ("FlashbackButton");
+			break;
 		case 4 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.melancholy);break;
 		case 5 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.jacob);break;
 		case 6 : SoundtrackManager.s_instance.PlayAudioSource(SoundtrackManager.s_instance.ambient);break;
@@ -29,8 +32,10 @@ public class SubLevelInitializer : MonoBehaviour {
 			GameManager.s_instance.isAutoSymbolismComplete = true;
 		if (chatButton == null)
 			GameManager.s_instance.isChatComplete = true;
-		if (flashbackButton == null)
-			GameManager.s_instance.isFlashbackComplete = true;
+		if (flashbackButton == null) {
+						GameManager.s_instance.isFlashbackComplete = true;
+			print("set to true flashback");
+			}
 
 		//if there is no button call it complete, and if it is complete, do not show the button, double setting here but who cares
 		if (mazeButton != null && GameManager.s_instance.isMazeComplete == true) {
@@ -55,8 +60,10 @@ public class SubLevelInitializer : MonoBehaviour {
 		//flashBack
 		if (flashbackButton != null && GameManager.s_instance.isFlashbackComplete == true) {
 			GameManager.s_instance.isFlashbackComplete = true;
-			if (flashbackButton.activeSelf)
+			if (flashbackButton.activeSelf){
+				print ("flashback off");
 				flashbackButton.SetActive(false);
+			}
 		}
 
 		if (GameManager.s_instance.isChatComplete && GameManager.s_instance.isFlashbackComplete

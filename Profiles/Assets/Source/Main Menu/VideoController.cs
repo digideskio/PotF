@@ -6,6 +6,8 @@ using System.Collections;
 public class VideoController : MonoBehaviour {
 	public MovieTexture[] movies;
 	void Start(){
+		Screen.lockCursor = true;
+
 		renderer.material.mainTexture = movies [GameManager.s_instance.subLevel];
 		movies[GameManager.s_instance.subLevel] = renderer.material.mainTexture as MovieTexture;
 		audio.clip = movies[GameManager.s_instance.subLevel].audioClip;
@@ -24,6 +26,7 @@ public class VideoController : MonoBehaviour {
 	}
 
 	void EndVideoScene() {
+		Screen.lockCursor = false;
 
 		GameManager.s_instance.subLevel ++;
 		GameManager.s_instance.MarkAllIncomplete ();

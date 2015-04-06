@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WinCondition : MonoBehaviour {
 
-	public AudioSource soundtrack;
+	public AudioSource soundtrack, soundtrack2;
 	bool hasWon = false;
 	public GameObject picture;
 
@@ -13,6 +13,8 @@ public class WinCondition : MonoBehaviour {
 		SoundtrackManager.s_instance.PlayAudioSource (SoundtrackManager.s_instance.nightAmbience);
 		SoundtrackManager.s_instance.megaAmbient.volume = 0.1f;
 		if (soundtrack!=null){soundtrack.Play ();
+		}
+		if (soundtrack2!=null){soundtrack2.Play ();
 		}
 	}
 
@@ -30,9 +32,12 @@ public class WinCondition : MonoBehaviour {
 			SoundtrackManager.s_instance.StartCoroutine("FadeOutAudioSource",SoundtrackManager.s_instance.nightAmbience);
 
 			StartCoroutine ("FadeOutAudioSource", soundtrack);
-			Time.timeScale = 0.5f;
+			if (soundtrack2!=null)
+				StartCoroutine ("FadeOutAudioSource", soundtrack2);
+
+			Time.timeScale = 0.3f;
 			GameObject.Find ("PortraitText").GetComponent<FadeIn> ().StartFade ();
-			yield return new WaitForSeconds (10f);
+			yield return new WaitForSeconds (11f);
 			GameObject.Find ("whiteOut").GetComponent<FadeIn>().StartFade();
 			yield return new WaitForSeconds (4f);
 			Time.timeScale = 1f;

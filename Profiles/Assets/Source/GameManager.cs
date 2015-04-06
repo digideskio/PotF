@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public int subLevel = 0; //there are 11 sublevels, they represent the progress through game, only modified after video clips end
 
 	public void MarkAsComplete(LevelType level) {
+		print ("mark as complete");
 		switch (level) {
 		case LevelType.AutoSymbolism : isAutoSymbolismComplete = true; break;
 		case LevelType.Chat : isChatComplete = true; break;

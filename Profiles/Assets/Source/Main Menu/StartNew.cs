@@ -36,7 +36,8 @@ public class StartNew : MonoBehaviour {
 	IEnumerator LoadLevel()
 	{
 		yield return new WaitForSeconds (1);
-		GameManager.s_instance.subLevel = int.Parse (levelName);
+		if (levelName!="videoplayer")
+			GameManager.s_instance.subLevel = int.Parse (levelName);
 		Application.LoadLevel (levelName);
 	}
 }

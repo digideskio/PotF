@@ -13,8 +13,8 @@ public class SoundtrackManager : MonoBehaviour {
 
 	IEnumerator FadeOutAudioSource(AudioSource x) { //call from elsewhere
 		while (x.volume > 0.0f) {					//where x is sound track file
-			x.volume -= 0.1f;
-			yield return new WaitForSeconds(0.3f);
+			x.volume -= 0.01f;
+			yield return new WaitForSeconds(0.03f);
 		}
 		x.Stop ();
 	}
